@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8367D93947238B26C10347 /* Pods_EasyMOOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */; };
+		1E20DA561E233BED00899FCA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20DA551E233BED00899FCA /* LoginViewController.swift */; };
 		1E2B5DBB1E1C94780062CB37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */; };
-		1E2B5DBD1E1C94780062CB37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5DBC1E1C94780062CB37 /* ViewController.swift */; };
 		1E2B5DC01E1C94780062CB37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2B5DBE1E1C94780062CB37 /* Main.storyboard */; };
 		1E2B5DC31E1C94780062CB37 /* EasyMOOC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC11E1C94780062CB37 /* EasyMOOC.xcdatamodeld */; };
 		1E2B5DC51E1C94780062CB37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC41E1C94780062CB37 /* Assets.xcassets */; };
 		1E2B5DC81E1C94780062CB37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC61E1C94780062CB37 /* LaunchScreen.storyboard */; };
+		1EBB902E1E273733002C7340 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902D1E273733002C7340 /* Constant.swift */; };
+		1EBB90301E274DE7002C7340 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902F1E274DE7002C7340 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E20DA551E233BED00899FCA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1E2B5DB71E1C94780062CB37 /* EasyMOOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyMOOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1E2B5DBC1E1C94780062CB37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1E2B5DBF1E1C94780062CB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E2B5DC21E1C94780062CB37 /* EasyMOOC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyMOOC.xcdatamodel; sourceTree = "<group>"; };
 		1E2B5DC41E1C94780062CB37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E2B5DC71E1C94780062CB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E2B5DC91E1C94780062CB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EBB902D1E273733002C7340 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Helper/Constant.swift; sourceTree = "<group>"; };
+		1EBB902F1E274DE7002C7340 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Helper/Extension.swift; sourceTree = "<group>"; };
+		4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.debug.xcconfig"; sourceTree = "<group>"; };
+		BB052F2EBB5C78D56D1A0451 /* Pods-EasyMOOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.release.xcconfig"; sourceTree = "<group>"; };
+		D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyMOOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C8367D93947238B26C10347 /* Pods_EasyMOOC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,8 @@
 			children = (
 				1E2B5DB91E1C94780062CB37 /* EasyMOOC */,
 				1E2B5DB81E1C94780062CB37 /* Products */,
+				E79C13F4316A4A146FF83CCB /* Pods */,
+				7149FF36DD6FB25C6947F0A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +67,42 @@
 		1E2B5DB91E1C94780062CB37 /* EasyMOOC */ = {
 			isa = PBXGroup;
 			children = (
+				1EBB902C1E27370F002C7340 /* Helper */,
 				1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */,
-				1E2B5DBC1E1C94780062CB37 /* ViewController.swift */,
 				1E2B5DBE1E1C94780062CB37 /* Main.storyboard */,
+				1E20DA551E233BED00899FCA /* LoginViewController.swift */,
 				1E2B5DC41E1C94780062CB37 /* Assets.xcassets */,
 				1E2B5DC61E1C94780062CB37 /* LaunchScreen.storyboard */,
 				1E2B5DC91E1C94780062CB37 /* Info.plist */,
 				1E2B5DC11E1C94780062CB37 /* EasyMOOC.xcdatamodeld */,
 			);
 			path = EasyMOOC;
+			sourceTree = "<group>";
+		};
+		1EBB902C1E27370F002C7340 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1EBB902D1E273733002C7340 /* Constant.swift */,
+				1EBB902F1E274DE7002C7340 /* Extension.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		7149FF36DD6FB25C6947F0A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E79C13F4316A4A146FF83CCB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */,
+				BB052F2EBB5C78D56D1A0451 /* Pods-EasyMOOC.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E2B5DCC1E1C94780062CB37 /* Build configuration list for PBXNativeTarget "EasyMOOC" */;
 			buildPhases = (
+				1929E5931A1CAAB9068123BD /* [CP] Check Pods Manifest.lock */,
 				1E2B5DB31E1C94780062CB37 /* Sources */,
 				1E2B5DB41E1C94780062CB37 /* Frameworks */,
 				1E2B5DB51E1C94780062CB37 /* Resources */,
+				EFF3AC05F6FEE69B587D41B0 /* [CP] Embed Pods Frameworks */,
+				DD1AE0CA63EC0F62E7580EA8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,14 +176,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1929E5931A1CAAB9068123BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD1AE0CA63EC0F62E7580EA8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFF3AC05F6FEE69B587D41B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1E2B5DB31E1C94780062CB37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E2B5DBD1E1C94780062CB37 /* ViewController.swift in Sources */,
+				1EBB90301E274DE7002C7340 /* Extension.swift in Sources */,
+				1E20DA561E233BED00899FCA /* LoginViewController.swift in Sources */,
 				1E2B5DBB1E1C94780062CB37 /* AppDelegate.swift in Sources */,
 				1E2B5DC31E1C94780062CB37 /* EasyMOOC.xcdatamodeld in Sources */,
+				1EBB902E1E273733002C7340 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +354,7 @@
 		};
 		1E2B5DCD1E1C94780062CB37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 234U2QHE6X;
@@ -276,6 +368,7 @@
 		};
 		1E2B5DCE1E1C94780062CB37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB052F2EBB5C78D56D1A0451 /* Pods-EasyMOOC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 234U2QHE6X;
@@ -306,6 +399,7 @@
 				1E2B5DCE1E1C94780062CB37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

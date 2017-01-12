@@ -1,0 +1,6 @@
+framework module Pods_EasyMOOC {
+  umbrella header "Pods-EasyMOOC-umbrella.h"
+
+  export *
+  module * { export * }
+}
