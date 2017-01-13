@@ -16,6 +16,7 @@
 		1E2B5DC81E1C94780062CB37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC61E1C94780062CB37 /* LaunchScreen.storyboard */; };
 		1EBB902E1E273733002C7340 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902D1E273733002C7340 /* Constant.swift */; };
 		1EBB90301E274DE7002C7340 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902F1E274DE7002C7340 /* Extension.swift */; };
+		1EBB90321E27D1CE002C7340 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB90311E27D1CE002C7340 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		1E2B5DC91E1C94780062CB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EBB902D1E273733002C7340 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Helper/Constant.swift; sourceTree = "<group>"; };
 		1EBB902F1E274DE7002C7340 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Helper/Extension.swift; sourceTree = "<group>"; };
+		1EBB90311E27D1CE002C7340 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.debug.xcconfig"; sourceTree = "<group>"; };
 		BB052F2EBB5C78D56D1A0451 /* Pods-EasyMOOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.release.xcconfig"; sourceTree = "<group>"; };
 		D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyMOOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 				1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */,
 				1E2B5DBE1E1C94780062CB37 /* Main.storyboard */,
 				1E20DA551E233BED00899FCA /* LoginViewController.swift */,
+				1EBB90311E27D1CE002C7340 /* RegisterViewController.swift */,
 				1E2B5DC41E1C94780062CB37 /* Assets.xcassets */,
 				1E2B5DC61E1C94780062CB37 /* LaunchScreen.storyboard */,
 				1E2B5DC91E1C94780062CB37 /* Info.plist */,
@@ -232,6 +235,7 @@
 				1EBB90301E274DE7002C7340 /* Extension.swift in Sources */,
 				1E20DA561E233BED00899FCA /* LoginViewController.swift in Sources */,
 				1E2B5DBB1E1C94780062CB37 /* AppDelegate.swift in Sources */,
+				1EBB90321E27D1CE002C7340 /* RegisterViewController.swift in Sources */,
 				1E2B5DC31E1C94780062CB37 /* EasyMOOC.xcdatamodeld in Sources */,
 				1EBB902E1E273733002C7340 /* Constant.swift in Sources */,
 			);
@@ -277,6 +281,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -327,6 +332,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
