@@ -68,9 +68,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.toolbar.isHidden = true
         userName.delegate = self
         userPwd.delegate = self
         userPwd.isSecureTextEntry = true
@@ -92,6 +89,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         register.backgroundColor = Constant.selectedGreen
         register.layer.cornerRadius = 10
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {

@@ -53,9 +53,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         registerButton.backgroundColor = Constant.selectedGreen
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
