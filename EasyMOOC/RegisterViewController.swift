@@ -49,6 +49,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         userName.placeholder = "账号..."
         userPwd.placeholder  = "密码..."
         identity.placeholder = "学生/教师"
+        userName.autocorrectionType = .no
         registerButton.layer.cornerRadius = 10
         registerButton.backgroundColor = Constant.selectedGreen
     }

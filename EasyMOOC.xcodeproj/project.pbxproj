@@ -14,9 +14,15 @@
 		1E2B5DC31E1C94780062CB37 /* EasyMOOC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC11E1C94780062CB37 /* EasyMOOC.xcdatamodeld */; };
 		1E2B5DC51E1C94780062CB37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC41E1C94780062CB37 /* Assets.xcassets */; };
 		1E2B5DC81E1C94780062CB37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC61E1C94780062CB37 /* LaunchScreen.storyboard */; };
+		1E52DC3F1E472DFD007FD1E0 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52DC3E1E472DFD007FD1E0 /* SearchController.swift */; };
+		1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52DC421E475DEF007FD1E0 /* Course.swift */; };
+		1E52DC451E47766E007FD1E0 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52DC441E47766E007FD1E0 /* CourseCell.swift */; };
+		1E5D3D071E46FEE6008604A3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D3D061E46FEE6008604A3 /* MainTabBarViewController.swift */; };
 		1EBB902E1E273733002C7340 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902D1E273733002C7340 /* Constant.swift */; };
 		1EBB90301E274DE7002C7340 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902F1E274DE7002C7340 /* Extension.swift */; };
 		1EBB90321E27D1CE002C7340 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB90311E27D1CE002C7340 /* RegisterViewController.swift */; };
+		1EF46DE81E4709A70021B160 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF46DE71E4709A70021B160 /* HomeViewController.swift */; };
+		1EF46DEC1E4709F10021B160 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF46DEB1E4709F10021B160 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +34,15 @@
 		1E2B5DC41E1C94780062CB37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E2B5DC71E1C94780062CB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E2B5DC91E1C94780062CB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E52DC3E1E472DFD007FD1E0 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = TabBarController/SearchController.swift; sourceTree = "<group>"; };
+		1E52DC421E475DEF007FD1E0 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		1E52DC441E47766E007FD1E0 /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		1E5D3D061E46FEE6008604A3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		1EBB902D1E273733002C7340 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Helper/Constant.swift; sourceTree = "<group>"; };
 		1EBB902F1E274DE7002C7340 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Helper/Extension.swift; sourceTree = "<group>"; };
 		1EBB90311E27D1CE002C7340 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1EF46DE71E4709A70021B160 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = TabBarController/HomeViewController.swift; sourceTree = "<group>"; };
+		1EF46DEB1E4709F10021B160 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.debug.xcconfig"; sourceTree = "<group>"; };
 		BB052F2EBB5C78D56D1A0451 /* Pods-EasyMOOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.release.xcconfig"; sourceTree = "<group>"; };
 		D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyMOOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,16 +82,34 @@
 			isa = PBXGroup;
 			children = (
 				1EBB902C1E27370F002C7340 /* Helper */,
+				1E5D3D081E46FEEE008604A3 /* LoginController */,
+				1EF46DE61E4709770021B160 /* TabBarController */,
+				1E5D3D091E46FF1D008604A3 /* SupportingFile */,
 				1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */,
 				1E2B5DBE1E1C94780062CB37 /* Main.storyboard */,
+				1E52DC421E475DEF007FD1E0 /* Course.swift */,
+			);
+			path = EasyMOOC;
+			sourceTree = "<group>";
+		};
+		1E5D3D081E46FEEE008604A3 /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
 				1E20DA551E233BED00899FCA /* LoginViewController.swift */,
 				1EBB90311E27D1CE002C7340 /* RegisterViewController.swift */,
+			);
+			name = LoginController;
+			sourceTree = "<group>";
+		};
+		1E5D3D091E46FF1D008604A3 /* SupportingFile */ = {
+			isa = PBXGroup;
+			children = (
 				1E2B5DC41E1C94780062CB37 /* Assets.xcassets */,
 				1E2B5DC61E1C94780062CB37 /* LaunchScreen.storyboard */,
 				1E2B5DC91E1C94780062CB37 /* Info.plist */,
 				1E2B5DC11E1C94780062CB37 /* EasyMOOC.xcdatamodeld */,
 			);
-			path = EasyMOOC;
+			name = SupportingFile;
 			sourceTree = "<group>";
 		};
 		1EBB902C1E27370F002C7340 /* Helper */ = {
@@ -89,6 +119,18 @@
 				1EBB902F1E274DE7002C7340 /* Extension.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		1EF46DE61E4709770021B160 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				1E5D3D061E46FEE6008604A3 /* MainTabBarViewController.swift */,
+				1EF46DE71E4709A70021B160 /* HomeViewController.swift */,
+				1EF46DEB1E4709F10021B160 /* UserViewController.swift */,
+				1E52DC3E1E472DFD007FD1E0 /* SearchController.swift */,
+				1E52DC441E47766E007FD1E0 /* CourseCell.swift */,
+			);
+			name = TabBarController;
 			sourceTree = "<group>";
 		};
 		7149FF36DD6FB25C6947F0A5 /* Frameworks */ = {
@@ -232,10 +274,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E52DC451E47766E007FD1E0 /* CourseCell.swift in Sources */,
 				1EBB90301E274DE7002C7340 /* Extension.swift in Sources */,
+				1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */,
+				1EF46DEC1E4709F10021B160 /* UserViewController.swift in Sources */,
 				1E20DA561E233BED00899FCA /* LoginViewController.swift in Sources */,
 				1E2B5DBB1E1C94780062CB37 /* AppDelegate.swift in Sources */,
+				1EF46DE81E4709A70021B160 /* HomeViewController.swift in Sources */,
+				1E5D3D071E46FEE6008604A3 /* MainTabBarViewController.swift in Sources */,
 				1EBB90321E27D1CE002C7340 /* RegisterViewController.swift in Sources */,
+				1E52DC3F1E472DFD007FD1E0 /* SearchController.swift in Sources */,
 				1E2B5DC31E1C94780062CB37 /* EasyMOOC.xcdatamodeld in Sources */,
 				1EBB902E1E273733002C7340 /* Constant.swift in Sources */,
 			);

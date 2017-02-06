@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 
-class Constant {
+struct Constant {
     static let selectedGreen = UIColor(red: 83, green: 215, blue: 105)
     static let backgroundBlue = UIColor(red: 81, green: 187, blue: 248)
+    
+    static var isLogin = false
+    static var currentUser = ""
     
     static func aler(with msg:String,title:String){
         

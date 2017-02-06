@@ -33,9 +33,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             LCUser.logIn(username: userName.text!, password: userPwd.text!) { (result) in
                 switch result {
                     case .success(_):
+                        Constant.isLogin = true
+                        Constant.currentUser = self.userName.text!
+                        UIApplication.shared.keyWindow?.rootViewController = MainTabBarViewController()
                         Constant.aler(with: "登陆成功", title: "")
                         break
                     case .failure(let err):
+                        Constant.isLogin = false
                         Constant.aler(with: "登录失败 \(err)", title: "")
                 }
             }
@@ -68,11 +72,15 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.shared.keyWindow?.rootViewController = MainTabBarViewController()
+
+        
         userName.delegate = self
         userPwd.delegate = self
         userPwd.isSecureTextEntry = true
         userName.placeholder = "账号..."
         userPwd.placeholder  = "密码..."
+        userName.autocorrectionType = .no
         //make the button round
         student.layer.cornerRadius = 0.5 * student.bounds.size.width
         student.clipsToBounds = true
@@ -88,9 +96,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         loginButton.layer.cornerRadius = 10
         register.backgroundColor = Constant.selectedGreen
         register.layer.cornerRadius = 10
-        
+
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
