@@ -45,14 +45,14 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return course == nil ? 0 : (course?.count)!
+        return 2 //course == nil ? 0 : (course?.count)!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = CourseCell(with: (course?[indexPath.row])!)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         
-        return cell
+        return cell!
     }
 
     //MARK: - Search controller delegate

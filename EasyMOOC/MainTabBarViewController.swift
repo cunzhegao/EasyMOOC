@@ -21,9 +21,9 @@ class MainTabBarViewController: UITabBarController {
         firstNaviController.title = "主页"
         firstNaviController.tabBarItem.image = #imageLiteral(resourceName: "home-7")
         
-        let searchController = SearchController()
-        searchController.navigationItem.title = "搜索课程"
-        let secondNaviController = UINavigationController(rootViewController:searchController)
+        let searchController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "search") as? SearchController
+        searchController?.navigationItem.title = "搜索课程"
+        let secondNaviController = UINavigationController(rootViewController:searchController!)
         secondNaviController.title = "搜索课程"
         secondNaviController.tabBarItem.image = #imageLiteral(resourceName: "search-7")
         

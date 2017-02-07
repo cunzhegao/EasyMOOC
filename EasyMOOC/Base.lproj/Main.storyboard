@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zpC-pX-EGh">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zpC-pX-EGh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -167,6 +168,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mo5-7T-WJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1823.2" y="136.28185907046478"/>
+        </scene>
+        <!--Search Controller-->
+        <scene sceneID="Fzp-bR-chQ">
+            <objects>
+                <tableViewController storyboardIdentifier="search" id="nnt-Hf-nyS" customClass="SearchController" customModule="EasyMOOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kzl-Ck-8re">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="course" rowHeight="70" id="cBN-2Y-kbA">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBN-2Y-kbA" id="HGC-6k-lPM">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ir-0j-h2d">
+                                            <rect key="frame" x="8" y="0.0" width="110" height="70"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="university" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFt-uM-rz2">
+                                            <rect key="frame" x="130" y="35" width="53" height="13"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="courseName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3e3-Ta-2fm">
+                                            <rect key="frame" x="130" y="0.0" width="121" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="teacher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZG-r7-Su0">
+                                            <rect key="frame" x="130" y="48" width="59" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3e3-Ta-2fm" secondAttribute="trailing" constant="10" id="HJ6-Ju-yMF"/>
+                                        <constraint firstItem="3e3-Ta-2fm" firstAttribute="top" secondItem="HGC-6k-lPM" secondAttribute="topMargin" constant="10" id="J5S-uM-rHa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="HZG-r7-Su0" secondAttribute="trailing" constant="10" id="OnH-ml-JUp"/>
+                                        <constraint firstItem="1ir-0j-h2d" firstAttribute="top" secondItem="HGC-6k-lPM" secondAttribute="topMargin" constant="5" id="UeA-VD-g9R"/>
+                                        <constraint firstItem="3e3-Ta-2fm" firstAttribute="leading" secondItem="1ir-0j-h2d" secondAttribute="trailing" constant="8" id="Vdp-kK-JgA"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="1ir-0j-h2d" secondAttribute="leading" constant="8" id="VqA-rL-UT5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="1ir-0j-h2d" secondAttribute="bottom" constant="5" id="Y4S-nW-fZa"/>
+                                        <constraint firstItem="HFt-uM-rz2" firstAttribute="centerY" secondItem="3e3-Ta-2fm" secondAttribute="centerY" constant="15" id="bXI-ug-Taq"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="HFt-uM-rz2" secondAttribute="trailing" constant="10" id="g5c-BE-akZ"/>
+                                        <constraint firstItem="HZG-r7-Su0" firstAttribute="centerY" secondItem="HFt-uM-rz2" secondAttribute="centerY" constant="3" id="hPi-3B-d6n"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nnt-Hf-nyS" id="e6f-bM-yp8"/>
+                            <outlet property="delegate" destination="nnt-Hf-nyS" id="auM-UZ-Nd4"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WaJ-LI-37s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="816.34182908545733"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r3l-85-j2a">
