@@ -23,10 +23,10 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(CourseCell.self, forCellReuseIdentifier: cellId)
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "课程名、学校、教师"
         self.tableView.tableHeaderView = searchController.searchBar
         
@@ -38,32 +38,42 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        return 2 //course == nil ? 0 : (course?.count)!
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-//        
-//        return cell!
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return course == nil ? 0 : (course?.count)!
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCell
+        cell.course = course?[indexPath.row]
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
     //MARK: - Search controller delegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         let searchText = searchBar.text ?? ""
-        print(searchText)
-        searchController.searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
         
-        let query = LCQuery(className: "Course")
-        query.whereKey("university", .matchedSubstring(searchText))
+        let universityQuery = LCQuery(className: "Course")
+        universityQuery.whereKey("university", .matchedSubstring(searchText))
+        let courseQuery = LCQuery(className: "Course")
+        courseQuery.whereKey("coureseName", .matchedSubstring(searchText))
+        let teacherQuery = LCQuery(className: "Course")
+        teacherQuery.whereKey("teacher", .matchedSubstring(searchText))
+        
+        let query = universityQuery.or(courseQuery).or(teacherQuery)
         query.find { result in
             switch result {
                 case .success(let searchResult):
@@ -72,6 +82,10 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
                     print("search fail : \(error.reason)")
             }
         }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
     func updateSearchResults(for searchController: UISearchController) {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SearchController.(searchBarSearchButtonClicked(UISearchBar) -&gt; ()).(closure #1):SearchController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CourseCell.updateUI() -&gt; ():CourseCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(file.jsonString)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -16,6 +16,8 @@ struct Constant {
     static var isLogin = false
     static var currentUser = ""
     
+    static var thumbnails:[String : UIImage]?
+    
     static func aler(with msg:String,title:String){
         
         let alerWindow = UIAlertController(title: title, message: msg, preferredStyle: .alert)
