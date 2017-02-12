@@ -43,15 +43,16 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.view.backgroundColor = Constant.fbBlue
+        self.navigationController?.navigationBar.barTintColor = Constant.fbBlue
+        self.navigationController?.navigationBar.tintColor    = UIColor.black
         
         userPwd.isSecureTextEntry = true
         userName.placeholder = "账号..."
         userPwd.placeholder  = "密码..."
         identity.placeholder = "学生/教师"
         userName.autocorrectionType = .no
-        registerButton.layer.cornerRadius = 10
-        registerButton.backgroundColor = Constant.selectedGreen
+        registerButton.backgroundColor = Constant.btnBlue
     }
     
 

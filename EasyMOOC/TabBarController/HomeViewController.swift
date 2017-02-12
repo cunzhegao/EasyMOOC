@@ -14,9 +14,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.red
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " 登出", style: .plain, target: self.tabBarController, action: #selector(MainTabBarViewController.logout))
     }
-
-
-    
 
 }

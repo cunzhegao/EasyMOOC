@@ -12,8 +12,8 @@ class MainTabBarViewController: UITabBarController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
+        
         //set three navigationcontroller as root controller of tabbarcontroller
         let homeController = HomeViewController()
         homeController.navigationItem.title = "主页"
@@ -34,5 +34,12 @@ class MainTabBarViewController: UITabBarController {
         thirdNaviController.tabBarItem.image = #imageLiteral(resourceName: "circle-user-7")
         
         self.viewControllers = [firstNaviController,secondNaviController,thirdNaviController]
+        
+
+    }
+    
+    func logout() {
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }

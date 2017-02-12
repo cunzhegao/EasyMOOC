@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 
 struct Constant {
-    static let selectedGreen = UIColor(red: 83, green: 215, blue: 105)
-    static let backgroundBlue = UIColor(red: 81, green: 187, blue: 248)
+    
+    //UI Element Color
+    static let selectedGreen = UIColor(r: 83, g: 215, b: 105)
+    static let fbBlue = UIColor(r: 61, g: 91, b: 151)
+    static let btnBlue = UIColor(r: 80, g: 101, b: 161)
     
     static var isLogin = false
     static var currentUser = ""

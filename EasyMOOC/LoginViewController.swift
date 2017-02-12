@@ -13,8 +13,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
     var isStudent = false
     var isTeacher = false
-    
-    
+
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userPwd: UITextField!
     @IBOutlet weak var teacher: UIButton!
@@ -35,7 +34,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                     case .success(_):
                         Constant.isLogin = true
                         Constant.currentUser = self.userName.text!
-                        UIApplication.shared.keyWindow?.rootViewController = MainTabBarViewController()
+                        let mainVC = MainTabBarViewController()
+                        self.present(mainVC, animated: false, completion: nil)
                         Constant.aler(with: "登陆成功", title: "")
                         break
                     case .failure(let err):
@@ -72,14 +72,19 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.shared.keyWindow?.rootViewController = MainTabBarViewController()
-
+        
+        let mainVC = MainTabBarViewController()
+        self.present(mainVC, animated: false, completion: nil)
+        
+        self.view.backgroundColor = Constant.fbBlue
         
         userName.delegate = self
         userPwd.delegate = self
         userPwd.isSecureTextEntry = true
         userName.placeholder = "账号..."
         userPwd.placeholder  = "密码..."
+//        userName.backgroundColor = UIColor.white
+//        userPwd.backgroundColor  = UIColor.white
         userName.autocorrectionType = .no
         //make the button round
         student.layer.cornerRadius = 0.5 * student.bounds.size.width
@@ -92,10 +97,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         teacher.layer.borderWidth = 1
         teacher.layer.borderColor = UIColor.gray.cgColor
         
-        loginButton.backgroundColor = Constant.selectedGreen
-        loginButton.layer.cornerRadius = 10
-        register.backgroundColor = Constant.selectedGreen
-        register.layer.cornerRadius = 10
+        loginButton.backgroundColor = Constant.btnBlue
+        loginButton.layer.cornerRadius = 5
+        register.backgroundColor = Constant.btnBlue
+        register.layer.cornerRadius = 5
 
     }
 
@@ -113,6 +118,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.didReceiveMemoryWarning()
 
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     
     //MARK: -TextField Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
