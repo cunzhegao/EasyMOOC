@@ -16,6 +16,7 @@ class HomeViewController: UICollectionViewController,UICollectionViewDelegateFlo
         super.viewDidLoad()
         
         collectionView?.backgroundColor = UIColor.white
+        collectionView?.showsVerticalScrollIndicator = false
         collectionView?.register(CatagoryCell.self, forCellWithReuseIdentifier: cellId)
     }
 
@@ -23,6 +24,7 @@ class HomeViewController: UICollectionViewController,UICollectionViewDelegateFlo
         return .lightContent
     }
     
+    //MARK: - CollectionView DataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -33,6 +35,6 @@ class HomeViewController: UICollectionViewController,UICollectionViewDelegateFlo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 330)
+        return CGSize(width: view.frame.width, height: 370)
     }
 }
