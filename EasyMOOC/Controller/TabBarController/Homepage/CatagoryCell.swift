@@ -21,7 +21,6 @@ class CatagoryCell:UICollectionViewCell {
     }
     
     func setupView() {
-        
-        
+        backgroundColor = Constant.fbBlue
     }
 }

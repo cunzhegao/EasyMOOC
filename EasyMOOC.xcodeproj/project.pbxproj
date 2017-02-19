@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C8367D93947238B26C10347 /* Pods_EasyMOOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */; };
+		1E24559E1E59771F00FEB380 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24559C1E59771F00FEB380 /* CourseCell.swift */; };
+		1E24559F1E59771F00FEB380 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24559D1E59771F00FEB380 /* SearchController.swift */; };
 		1E2B5DBB1E1C94780062CB37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */; };
 		1E2B5DC01E1C94780062CB37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2B5DBE1E1C94780062CB37 /* Main.storyboard */; };
 		1E2B5DC31E1C94780062CB37 /* EasyMOOC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5DC11E1C94780062CB37 /* EasyMOOC.xcdatamodeld */; };
@@ -16,18 +18,18 @@
 		1E33A0C11E596F440069D791 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0BF1E596F440069D791 /* LoginViewController.swift */; };
 		1E33A0C21E596F440069D791 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0C01E596F440069D791 /* RegisterViewController.swift */; };
 		1E33A0C61E596F6A0069D791 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0C41E596F6A0069D791 /* MainTabBarViewController.swift */; };
-		1E33A0C71E596F6A0069D791 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0C51E596F6A0069D791 /* SearchController.swift */; };
 		1E33A0CA1E596F7E0069D791 /* MyCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0C81E596F7E0069D791 /* MyCourseController.swift */; };
 		1E33A0CB1E596F7E0069D791 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0C91E596F7E0069D791 /* UserViewController.swift */; };
 		1E33A0CD1E596F8F0069D791 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0CC1E596F8F0069D791 /* HomeViewController.swift */; };
 		1E33A0CF1E596FB50069D791 /* CatagoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E33A0CE1E596FB50069D791 /* CatagoryCell.swift */; };
 		1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52DC421E475DEF007FD1E0 /* Course.swift */; };
-		1E52DC451E47766E007FD1E0 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52DC441E47766E007FD1E0 /* CourseCell.swift */; };
 		1EBB902E1E273733002C7340 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902D1E273733002C7340 /* Constant.swift */; };
 		1EBB90301E274DE7002C7340 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902F1E274DE7002C7340 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E24559C1E59771F00FEB380 /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseCell.swift; path = Controller/TabBarController/SearchPage/CourseCell.swift; sourceTree = "<group>"; };
+		1E24559D1E59771F00FEB380 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = Controller/TabBarController/SearchPage/SearchController.swift; sourceTree = "<group>"; };
 		1E2B5DB71E1C94780062CB37 /* EasyMOOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyMOOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E2B5DBF1E1C94780062CB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,13 +40,11 @@
 		1E33A0BF1E596F440069D791 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/Login/LoginViewController.swift; sourceTree = "<group>"; };
 		1E33A0C01E596F440069D791 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = Controller/Login/RegisterViewController.swift; sourceTree = "<group>"; };
 		1E33A0C41E596F6A0069D791 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = Controller/TabBarController/MainTabBarViewController.swift; sourceTree = "<group>"; };
-		1E33A0C51E596F6A0069D791 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = Controller/TabBarController/SearchController.swift; sourceTree = "<group>"; };
 		1E33A0C81E596F7E0069D791 /* MyCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyCourseController.swift; path = Controller/TabBarController/UserPage/MyCourseController.swift; sourceTree = "<group>"; };
 		1E33A0C91E596F7E0069D791 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = Controller/TabBarController/UserPage/UserViewController.swift; sourceTree = "<group>"; };
 		1E33A0CC1E596F8F0069D791 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controller/TabBarController/Homepage/HomeViewController.swift; sourceTree = "<group>"; };
 		1E33A0CE1E596FB50069D791 /* CatagoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CatagoryCell.swift; path = Controller/TabBarController/Homepage/CatagoryCell.swift; sourceTree = "<group>"; };
 		1E52DC421E475DEF007FD1E0 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		1E52DC441E47766E007FD1E0 /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		1EBB902D1E273733002C7340 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Helper/Constant.swift; sourceTree = "<group>"; };
 		1EBB902F1E274DE7002C7340 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Helper/Extension.swift; sourceTree = "<group>"; };
 		4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E24559B1E59769800FEB380 /* SearchPage */ = {
+			isa = PBXGroup;
+			children = (
+				1E24559C1E59771F00FEB380 /* CourseCell.swift */,
+				1E24559D1E59771F00FEB380 /* SearchController.swift */,
+			);
+			name = SearchPage;
+			sourceTree = "<group>";
+		};
 		1E2B5DAE1E1C94780062CB37 = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				1E33A0C41E596F6A0069D791 /* MainTabBarViewController.swift */,
-				1E33A0C51E596F6A0069D791 /* SearchController.swift */,
 				1E33A0C31E596F560069D791 /* HomePage */,
+				1E24559B1E59769800FEB380 /* SearchPage */,
 				1E33A0BE1E596E870069D791 /* UserPage */,
 			);
 			name = TabbarController;
@@ -158,7 +167,6 @@
 			children = (
 				1E33A0BA1E576DF60069D791 /* Login */,
 				1E33A0BB1E576E0C0069D791 /* TabbarController */,
-				1E52DC441E47766E007FD1E0 /* CourseCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -306,10 +314,10 @@
 			files = (
 				1E33A0C11E596F440069D791 /* LoginViewController.swift in Sources */,
 				1E33A0CB1E596F7E0069D791 /* UserViewController.swift in Sources */,
-				1E33A0C71E596F6A0069D791 /* SearchController.swift in Sources */,
-				1E52DC451E47766E007FD1E0 /* CourseCell.swift in Sources */,
 				1E33A0CA1E596F7E0069D791 /* MyCourseController.swift in Sources */,
+				1E24559F1E59771F00FEB380 /* SearchController.swift in Sources */,
 				1EBB90301E274DE7002C7340 /* Extension.swift in Sources */,
+				1E24559E1E59771F00FEB380 /* CourseCell.swift in Sources */,
 				1E33A0C61E596F6A0069D791 /* MainTabBarViewController.swift in Sources */,
 				1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */,
 				1E33A0C21E596F440069D791 /* RegisterViewController.swift in Sources */,
