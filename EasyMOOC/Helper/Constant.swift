@@ -17,7 +17,8 @@ struct Constant {
     static let btnBlue = UIColor(r: 80, g: 101, b: 161)
     
     static var isLogin = false
-    static var currentUser = ""
+    static var currentUser:String?
+    static var isTeacherUser = false
     
     static var thumbnails:[String : UIImage]?
     
