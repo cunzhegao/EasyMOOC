@@ -9,14 +9,13 @@
 import UIKit
 import LeanCloud
 
-
 class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBarDelegate {
-
+    
     let cellId = "course"
     let searchController = UISearchController(searchResultsController: nil)
     var course:[LCObject]? {
         didSet {
-            self.tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
@@ -28,16 +27,16 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
         searchController.searchBar.sizeToFit()
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "课程名、学校、教师"
-        self.tableView.tableHeaderView = searchController.searchBar
+        tableView.tableHeaderView = searchController.searchBar
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -47,7 +46,7 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
         
         return course == nil ? 0 : (course?.count)!
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCell
@@ -59,7 +58,7 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-
+    
     //MARK: - Search controller delegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
@@ -78,10 +77,10 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
         let query = universityQuery.or(courseQuery).or(teacherQuery).or(typeQuery)
         query.find { result in
             switch result {
-                case .success(let searchResult):
-                    self.course = searchResult
-                case .failure(let error):
-                    print("search fail : \(error.reason)")
+            case .success(let searchResult):
+                self.course = searchResult
+            case .failure(let error):
+                print("search fail : \(error.reason)")
             }
         }
     }
@@ -97,5 +96,5 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
 }

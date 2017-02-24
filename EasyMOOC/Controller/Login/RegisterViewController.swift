@@ -10,7 +10,7 @@ import UIKit
 import LeanCloud
 
 class RegisterViewController: UIViewController,UITextFieldDelegate {
-
+    
     
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userPwd: UITextField!
@@ -28,13 +28,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             registerUser.set("identity", value: userIdentity)
             
             switch registerUser.signUp() {
-                case .success:
-                    Constant.aler(with: "注册成功", title: "")
-                    self.dismiss(animated: true, completion: nil)
-                    break
-                case .failure(_):
-                    Constant.aler(with: "注册失败,该账户已存在", title: "")
-                    break
+            case .success:
+                Constant.aler(with: "注册成功", title: "")
+                self.dismiss(animated: true, completion: nil)
+                break
+            case .failure(_):
+                Constant.aler(with: "注册失败,该账户已存在", title: "")
+                break
             }
         }
         
@@ -43,15 +43,18 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = Constant.fbBlue
-        self.navigationController?.navigationBar.barTintColor = Constant.fbBlue
-        self.navigationController?.navigationBar.tintColor    = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        view.backgroundColor = Constant.fbBlue
+        navigationController?.navigationBar.barTintColor = Constant.fbBlue
+        navigationController?.navigationBar.tintColor    = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         userPwd.isSecureTextEntry = true
-        userName.placeholder = "账号..."
-        userPwd.placeholder  = "密码..."
-        identity.placeholder = "学生/教师"
+        userName.placeholder = " 账号..."
+        userPwd.placeholder  = " 密码..."
+        identity.placeholder = " 学生/教师"
+        userName.layer.cornerRadius = 5
+        userPwd.layer.cornerRadius = 5
+        identity.layer.cornerRadius = 5
         userName.backgroundColor = UIColor.white
         userPwd.backgroundColor = UIColor.white;
         identity.backgroundColor = UIColor.white;
@@ -59,7 +62,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         registerButton.backgroundColor = Constant.btnBlue
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         print("didReceiveMemoryWarning")
@@ -73,7 +76,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             identity.becomeFirstResponder()
         }else {
             identity.resignFirstResponder()
-            self.register(self)
+            register(self)
         }
         return true
     }
@@ -84,7 +87,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
     }
-
+    
 }

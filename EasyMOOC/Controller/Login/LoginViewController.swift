@@ -12,17 +12,17 @@ import LeanCloud
 
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
-
+    
     var isStudent = false
     var isTeacher = false
-
+    
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userPwd: UITextField!
     @IBOutlet weak var teacher: UIButton!
     @IBOutlet weak var student: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var register: UIButton!
-
+    
     //MARK: -Login and Register
     @IBAction func login(_ sender: Any) {
         
@@ -33,27 +33,27 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }else {
             LCUser.logIn(username: userName.text!, password: userPwd.text!) { (result) in
                 switch result {
-                    case .success(_):
-                        Constant.isLogin = true
-                        Constant.isTeacherUser = self.isTeacher ? true : false
-                        Constant.currentUser = self.userName.text!
-                        let mainVC = MainTabBarViewController()
-                        self.present(mainVC, animated: false, completion: nil)
-                        Constant.aler(with: "登陆成功", title: "")
-                        break
-                    case .failure(let err):
-                        Constant.isLogin = false
-                        Constant.aler(with: "登录失败 \(err)", title: "")
+                case .success(_):
+                    Constant.isLogin = true
+                    Constant.isTeacherUser = self.isTeacher ? true : false
+                    Constant.currentUser = self.userName.text!
+                    let mainVC = MainTabBarViewController()
+                    self.present(mainVC, animated: false, completion: nil)
+                    Constant.aler(with: "登陆成功", title: "")
+                    break
+                case .failure(let err):
+                    Constant.isLogin = false
+                    Constant.aler(with: "登录失败 \(err)", title: "")
                 }
             }
         }
     }
     @IBAction func reigister(_ sender: Any) {
         
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
         let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "register")
         rvc.title = "用户注册"
-        self.navigationController?.pushViewController(rvc, animated: true)
+        navigationController?.pushViewController(rvc, animated: true)
     }
     
     //MARK: -Turn the button green when user select identity
@@ -77,19 +77,21 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         
         let mainVC = MainTabBarViewController()
-        self.present(mainVC, animated: false, completion: nil)
+        present(mainVC, animated: false, completion: nil)
         
-        self.view.backgroundColor = Constant.fbBlue
-        self.navigationController?.navigationBar.barStyle = .black
+        view.backgroundColor = Constant.fbBlue
+        navigationController?.navigationBar.barStyle = .black
         
         userName.delegate = self
         userPwd.delegate = self
         userPwd.isSecureTextEntry = true
-        userName.placeholder = "账号..."
-        userPwd.placeholder  = "密码..."
+        userName.placeholder = " 账号..."
+        userPwd.placeholder  = " 密码..."
         userName.backgroundColor = UIColor.white
         userPwd.backgroundColor  = UIColor.white
         userName.autocorrectionType = .no
+        userName.layer.cornerRadius = 5
+        userPwd.layer.cornerRadius  = 5
         //make the button round
         student.layer.cornerRadius = 0.5 * student.bounds.size.width
         student.clipsToBounds = true
@@ -105,21 +107,21 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         loginButton.layer.cornerRadius = 5
         register.backgroundColor = Constant.btnBlue
         register.layer.cornerRadius = 5
-
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        self.userName.text = ""
-        self.userPwd.text  = ""
+        navigationController?.navigationBar.isHidden = true
+        userName.text = ""
+        userPwd.text  = ""
         student.backgroundColor = UIColor.clear
         teacher.backgroundColor = UIColor.clear
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -134,12 +136,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             userPwd.becomeFirstResponder()
         }else {
             userPwd.resignFirstResponder()
-            self.login(self)
+            login(self)
         }
         
         return true
     }
     
-        
-
+    
+    
 }

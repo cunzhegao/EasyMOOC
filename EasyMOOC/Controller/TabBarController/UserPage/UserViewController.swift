@@ -9,7 +9,7 @@
 import UIKit
 
 class UserViewController: UIViewController,UIGestureRecognizerDelegate {
-
+    
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userIcon: UIImageView!
@@ -38,10 +38,10 @@ class UserViewController: UIViewController,UIGestureRecognizerDelegate {
         
         addGesture()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,8 +68,8 @@ class UserViewController: UIViewController,UIGestureRecognizerDelegate {
     func toMyCourse() {
         
         let myCourseVC = MyCourseController()
-        self.navigationController?.pushViewController(myCourseVC, animated: true)
-        self.tabBarController?.tabBar.isHidden = true
+        navigationController?.pushViewController(myCourseVC, animated: true)
+        tabBarController?.tabBar.isHidden = true
     }
     
     func toDownloadHistory() {

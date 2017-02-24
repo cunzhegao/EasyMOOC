@@ -14,10 +14,10 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBar.barTintColor = UIColor.white
+        tabBar.barTintColor = UIColor.white
         
         
-        self.setupController()
+        setupController()
     }
     
     func setupController() {
@@ -39,7 +39,7 @@ class MainTabBarViewController: UITabBarController {
         let secondNaviController = UINavigationController(rootViewController:searchController!)
         secondNaviController.title = "搜索课程"
         secondNaviController.tabBarItem.image = #imageLiteral(resourceName: "search-7")
-       // secondNaviController.tabBarItem.imageInsets = UIEdgeInsetsMake(1.5, 1.5, 1.5, 1.5)
+        // secondNaviController.tabBarItem.imageInsets = UIEdgeInsetsMake(1.5, 1.5, 1.5, 1.5)
         secondNaviController.navigationBar.barStyle = .black
         secondNaviController.navigationBar.barTintColor = Constant.fbBlue
         secondNaviController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
@@ -51,16 +51,16 @@ class MainTabBarViewController: UITabBarController {
         let thirdNaviController = UINavigationController(rootViewController: userController)
         thirdNaviController.title = "用户信息"
         thirdNaviController.tabBarItem.image = #imageLiteral(resourceName: "circle-user-7")
-      //  thirdNaviController.tabBarItem.imageInsets = UIEdgeInsetsMake(1.5, 1.5, 1.5, 1.5)
+        //  thirdNaviController.tabBarItem.imageInsets = UIEdgeInsetsMake(1.5, 1.5, 1.5, 1.5)
         thirdNaviController.navigationBar.barStyle = .black
         
         
-        self.viewControllers = [firstNaviController,secondNaviController,thirdNaviController]
+        viewControllers = [firstNaviController,secondNaviController,thirdNaviController]
     }
     
     func logout() {
         
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -11,7 +11,7 @@ import LeanCloud
 import Alamofire
 
 class CourseCell: UITableViewCell {
-   
+    
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var courseName: UILabel!
     @IBOutlet weak var university: UILabel!
@@ -19,14 +19,14 @@ class CourseCell: UITableViewCell {
     
     var course:LCObject? {
         didSet {
-           updateUI()
+            updateUI()
         }
     }
     
     func updateUI() {
-        print(self.course!)
+        print(course!)
         
-    
+        
         thumbnail.contentMode = .scaleAspectFit
         guard let dic = (course?.get("thumbnail") as! LCDictionary).jsonValue as? NSDictionary else {return}
         let url = dic.value(forKey: "url") as? String
@@ -45,6 +45,6 @@ class CourseCell: UITableViewCell {
         courseName.text = (course?.get("courseName") as! LCString).stringValue
         university.text = (course?.get("university") as! LCString).stringValue
         teacher.text = (course?.get("teacher") as! LCString).stringValue
-        self.setNeedsDisplay()
+        setNeedsDisplay()
     }
 }
