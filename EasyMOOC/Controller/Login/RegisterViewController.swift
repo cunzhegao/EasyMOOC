@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LeanCloud
 
 class RegisterViewController: UIViewController,UITextFieldDelegate {
     
@@ -21,20 +20,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         if userName.text == "" || userPwd.text == "" {
             Constant.aler(with: "账号/密码 不能为空", title: "提示")
         }else {
-            let registerUser = LCUser()
-            registerUser.username = LCString(userName.text!)
-            registerUser.password = LCString(userPwd.text!)
-            let userIdentity = identity.text
-            registerUser.set("identity", value: userIdentity)
-            
-            switch registerUser.signUp() {
-            case .success:
-                Constant.aler(with: "注册成功", title: "")
-                self.dismiss(animated: true, completion: nil)
-                break
-            case .failure(_):
-                Constant.aler(with: "注册失败,该账户已存在", title: "")
-                break
+            HttpManager.register(userName: userName.text!, userPwd: userPwd.text!, identity: identity.text!) {  result in
+                if result == "success" {
+                    Constant.aler(with: "注册成功", title: "")
+                    self.dismiss(animated: true, completion: nil)
+                }else {
+                    Constant.aler(with: "注册失败,该账户已存在", title: "")
+                }
             }
         }
         

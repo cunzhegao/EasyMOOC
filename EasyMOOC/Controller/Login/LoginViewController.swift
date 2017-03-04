@@ -31,19 +31,17 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }else if userName.text == "" || userPwd.text == "" {
             Constant.aler(with: "账号/密码不能为空", title: "提示")
         }else {
-            LCUser.logIn(username: userName.text!, password: userPwd.text!) { (result) in
-                switch result {
-                case .success(_):
+            HttpManager.login(userName: userName.text!,userPwd: userPwd.text!) { result in
+                if result == "success" {
                     Constant.isLogin = true
                     Constant.isTeacherUser = self.isTeacher ? true : false
                     Constant.currentUser = self.userName.text!
                     let mainVC = MainTabBarViewController()
                     self.present(mainVC, animated: false, completion: nil)
                     Constant.aler(with: "登陆成功", title: "")
-                    break
-                case .failure(let err):
+                }else {
                     Constant.isLogin = false
-                    Constant.aler(with: "登录失败 \(err)", title: "")
+                    Constant.aler(with: "登录失败 :\(result)", title: "")
                 }
             }
         }

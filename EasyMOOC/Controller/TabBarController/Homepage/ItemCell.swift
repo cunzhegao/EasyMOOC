@@ -63,16 +63,12 @@ class ItemCell: UICollectionViewCell {
         universityName.text = (course?.get("university") as! LCString).stringValue
         guard let dic = (course?.get("thumbnail") as! LCDictionary).jsonValue as? NSDictionary else {return}
         let url = dic.value(forKey: "url") as? String
-        let imageURL = URL(string: url!)
-        let request  =  try! URLRequest(url: imageURL!, method: .get)
+        guard let imageUrl = url else {print("image url is nil"); return}
         
-        Alamofire.request(request).response { (response) in
-            
-            let image = UIImage(data: response.data!)
-            DispatchQueue.main.async {
-                self.imageView.image = image
-            }
+        HttpManager.fetchImage(url: imageUrl) { image in
+            self.imageView.image = image
         }
+        
         
     }
 }

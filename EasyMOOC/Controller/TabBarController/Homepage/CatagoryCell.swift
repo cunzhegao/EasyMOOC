@@ -18,7 +18,7 @@ class CatagoryCell:UICollectionViewCell,UICollectionViewDataSource,UICollectionV
     var catagory: String? {
         didSet {
             catagoryName.text = catagory
-            fetchCourses() { result in
+            HttpManager.fetchCourses(catagoryName:catagoryName.text!) { result in
                 self.courses = result
                 DispatchQueue.main.async {
                     self.courseCollectionView.reloadData()
@@ -94,20 +94,7 @@ class CatagoryCell:UICollectionViewCell,UICollectionViewDataSource,UICollectionV
         
     }
     
-    func fetchCourses(_ completionHandler:@escaping ([LCObject]) -> Void) {
-        let typeQuery  = LCQuery(className: "Course")
-        typeQuery.whereKey("type", .matchedSubstring(catagoryName.text!))
-        
-        typeQuery.find { result in
-            switch result {
-            case .success(let searchResult):
-                completionHandler(searchResult)
-            case .failure(let error):
-                print("search fail : \(error.reason)")
-            }
-        }
 
-    }
     
     //MARK: -CollectionView DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,6 +111,16 @@ class CatagoryCell:UICollectionViewCell,UICollectionViewDataSource,UICollectionV
         return  CGSize(width: collectionView.frame.width / 2 - 5, height: collectionView.frame.height / 2 - 20)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let coursrName = (collectionView.cellForItem(at: indexPath) as! ItemCell).courseName.text!
+        HttpManager.fetchCourse(courseName: coursrName) { course in
+            let infoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "info") as! CourseInfoController
+            infoVC.course = course
+            let topVC = UIApplication.topViewController()
+            topVC?.navigationController?.pushViewController(infoVC, animated: true)
+            topVC?.tabBarController?.tabBar.isHidden = true
+        }
+    }
     
 }
 

@@ -30,9 +30,18 @@ class HomeViewController: UICollectionViewController,UICollectionViewDelegateFlo
         collectionView?.addSubview(refresher)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
     
     func refreshData() {
         collectionView?.reloadData()

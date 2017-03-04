@@ -27,6 +27,8 @@
 		1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52DC421E475DEF007FD1E0 /* Course.swift */; };
 		1EBB902E1E273733002C7340 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902D1E273733002C7340 /* Constant.swift */; };
 		1EBB90301E274DE7002C7340 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902F1E274DE7002C7340 /* Extension.swift */; };
+		1EDD1FA11E69C9C50075ECD4 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD1FA01E69C9C50075ECD4 /* HttpManager.swift */; };
+		1EDD1FA41E69D6A60075ECD4 /* CourseInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD1FA31E69D6A60075ECD4 /* CourseInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		1E52DC421E475DEF007FD1E0 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		1EBB902D1E273733002C7340 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Helper/Constant.swift; sourceTree = "<group>"; };
 		1EBB902F1E274DE7002C7340 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Helper/Extension.swift; sourceTree = "<group>"; };
+		1EDD1FA01E69C9C50075ECD4 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpManager.swift; path = Helper/HttpManager.swift; sourceTree = "<group>"; };
+		1EDD1FA31E69D6A60075ECD4 /* CourseInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseInfoController.swift; path = Controller/CourseController/CourseInfoController.swift; sourceTree = "<group>"; };
 		4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.debug.xcconfig"; sourceTree = "<group>"; };
 		BB052F2EBB5C78D56D1A0451 /* Pods-EasyMOOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.release.xcconfig"; sourceTree = "<group>"; };
 		D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyMOOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,8 +168,17 @@
 			children = (
 				1EBB902D1E273733002C7340 /* Constant.swift */,
 				1EBB902F1E274DE7002C7340 /* Extension.swift */,
+				1EDD1FA01E69C9C50075ECD4 /* HttpManager.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		1EDD1FA21E69D6330075ECD4 /* CourseController */ = {
+			isa = PBXGroup;
+			children = (
+				1EDD1FA31E69D6A60075ECD4 /* CourseInfoController.swift */,
+			);
+			name = CourseController;
 			sourceTree = "<group>";
 		};
 		1EF46DE61E4709770021B160 /* Controller */ = {
@@ -173,6 +186,7 @@
 			children = (
 				1E33A0BA1E576DF60069D791 /* Login */,
 				1E33A0BB1E576E0C0069D791 /* TabbarController */,
+				1EDD1FA21E69D6330075ECD4 /* CourseController */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -319,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E33A0C11E596F440069D791 /* LoginViewController.swift in Sources */,
+				1EDD1FA11E69C9C50075ECD4 /* HttpManager.swift in Sources */,
 				1E33A0CB1E596F7E0069D791 /* UserViewController.swift in Sources */,
 				1E33A0CA1E596F7E0069D791 /* MyCourseController.swift in Sources */,
 				1E24559F1E59771F00FEB380 /* SearchController.swift in Sources */,
@@ -327,6 +342,7 @@
 				1E24559E1E59771F00FEB380 /* CourseCell.swift in Sources */,
 				1E33A0C61E596F6A0069D791 /* MainTabBarViewController.swift in Sources */,
 				1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */,
+				1EDD1FA41E69D6A60075ECD4 /* CourseInfoController.swift in Sources */,
 				1E33A0C21E596F440069D791 /* RegisterViewController.swift in Sources */,
 				1E2B5DBB1E1C94780062CB37 /* AppDelegate.swift in Sources */,
 				1E2B5DC31E1C94780062CB37 /* EasyMOOC.xcdatamodeld in Sources */,

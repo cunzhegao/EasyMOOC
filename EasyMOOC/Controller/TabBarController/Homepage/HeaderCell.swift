@@ -22,23 +22,22 @@ class HeaderCell: UICollectionViewCell,UIScrollViewDelegate {
         
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.isPagingEnabled = true
         addSubview(scrollView)
         for index in 0..<4 {
             
-            frameZero.origin.x = self.scrollView.frame.size.width * CGFloat(index)
-            frameZero.size = self.scrollView.frame.size
-            self.scrollView.isPagingEnabled = true
+            frameZero.origin.x = scrollView.frame.size.width * CGFloat(index)
+            frameZero.size = scrollView.frame.size
             
             let subView = UIImageView(frame: frameZero)
             subView.image = UIImage(named: "header\(index)")
-            self.scrollView .addSubview(subView)
+            scrollView .addSubview(subView)
         }
         
-        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width * 4, height: self.scrollView.frame.size.height)
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width * 4, height: self.scrollView.frame.size.height)
         
         configurePageControl()
-        
-
+    
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,6 +61,7 @@ class HeaderCell: UICollectionViewCell,UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
         
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)

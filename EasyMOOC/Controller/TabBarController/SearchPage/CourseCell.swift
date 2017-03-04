@@ -30,16 +30,11 @@ class CourseCell: UITableViewCell {
         thumbnail.contentMode = .scaleAspectFit
         guard let dic = (course?.get("thumbnail") as! LCDictionary).jsonValue as? NSDictionary else {return}
         let url = dic.value(forKey: "url") as? String
-        let imageURL = URL(string: url!)
-        let request  =  try! URLRequest(url: imageURL!, method: .get)
-        
-        Alamofire.request(request).response { (response) in
-            
-            let image = UIImage(data: response.data!)
-            DispatchQueue.main.async {
-                self.thumbnail.image = image
-            }
+        guard let imageUrl = url else {print("url is nil");return}
+        HttpManager.fetchImage(url: imageUrl) { image in
+            self.thumbnail.image = image
         }
+        
         
         //thumbnail.image = #imageLiteral(resourceName: "search-7")
         courseName.text = (course?.get("courseName") as! LCString).stringValue
