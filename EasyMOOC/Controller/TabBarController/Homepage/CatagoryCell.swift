@@ -14,7 +14,7 @@ class CatagoryCell:UICollectionViewCell,UICollectionViewDataSource,UICollectionV
     
     let cellId = "itemCell"
     
-    var courses:[LCObject]?
+    var courses:[Course]?
     var catagory: String? {
         didSet {
             catagoryName.text = catagory
@@ -112,14 +112,12 @@ class CatagoryCell:UICollectionViewCell,UICollectionViewDataSource,UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let coursrName = (collectionView.cellForItem(at: indexPath) as! ItemCell).courseName.text!
-        HttpManager.fetchCourse(courseName: coursrName) { course in
-            let infoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "info") as! CourseInfoController
-            infoVC.course = course
-            let topVC = UIApplication.topViewController()
-            topVC?.navigationController?.pushViewController(infoVC, animated: true)
-            topVC?.tabBarController?.tabBar.isHidden = true
-        }
+
+        let infoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "info") as! CourseInfoController
+        infoVC.course = courses?[indexPath.row]
+        let topVC = UIApplication.topViewController()
+        topVC?.navigationController?.pushViewController(infoVC, animated: true)
+        topVC?.tabBarController?.tabBar.isHidden = true
     }
     
 }

@@ -38,6 +38,8 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         view.backgroundColor = Constant.fbBlue
         navigationController?.navigationBar.barTintColor = Constant.fbBlue
         navigationController?.navigationBar.tintColor    = UIColor.white
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         userPwd.isSecureTextEntry = true
@@ -47,19 +49,14 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         userName.layer.cornerRadius = 5
         userPwd.layer.cornerRadius = 5
         identity.layer.cornerRadius = 5
+        registerButton.layer.cornerRadius = 5
         userName.backgroundColor = UIColor.white
         userPwd.backgroundColor = UIColor.white;
         identity.backgroundColor = UIColor.white;
         userName.autocorrectionType = .no
         registerButton.backgroundColor = Constant.btnBlue
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        print("didReceiveMemoryWarning")
-    }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if textField == userName {
@@ -79,7 +76,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="course" id="bOp-6d-kyA" customClass="CourseCell" customModule="EasyMOOC" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOp-6d-kyA" id="wYJ-CE-Qq7">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GN4-1I-Qjq" userLabel="thumbnail">
+                        <rect key="frame" x="8" y="9" width="107" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="107" id="LiA-Bb-Tg9"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计算机科学" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UN5-xD-ZMi" userLabel="courseName">
+                        <rect key="frame" x="123" y="9" width="183" height="19"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广外外语外贸大学" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGE-uD-cF7">
+                        <rect key="frame" x="123" y="56" width="183" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                        <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教师名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tw1-lP-Sx8">
+                        <rect key="frame" x="123" y="41" width="132" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                        <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="qGE-uD-cF7" secondAttribute="bottom" constant="1.5" id="0kS-IK-B1R"/>
+                    <constraint firstItem="tw1-lP-Sx8" firstAttribute="leading" secondItem="GN4-1I-Qjq" secondAttribute="trailing" constant="8" id="3x1-1U-4Im"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="UN5-xD-ZMi" secondAttribute="trailing" constant="61" id="DXE-81-3LS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GN4-1I-Qjq" secondAttribute="bottom" constant="2" id="Dtu-xm-LtV"/>
+                    <constraint firstItem="GN4-1I-Qjq" firstAttribute="top" secondItem="wYJ-CE-Qq7" secondAttribute="topMargin" constant="1" id="J4j-v1-4kX"/>
+                    <constraint firstItem="UN5-xD-ZMi" firstAttribute="leading" secondItem="GN4-1I-Qjq" secondAttribute="trailing" constant="8" id="L0I-4G-0Fm"/>
+                    <constraint firstItem="qGE-uD-cF7" firstAttribute="leading" secondItem="GN4-1I-Qjq" secondAttribute="trailing" constant="8" id="Rm3-qr-mZq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qGE-uD-cF7" secondAttribute="trailing" constant="61" id="Vqc-tV-P7x"/>
+                    <constraint firstItem="UN5-xD-ZMi" firstAttribute="top" secondItem="wYJ-CE-Qq7" secondAttribute="topMargin" constant="1" id="hRt-wz-WbV"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="GN4-1I-Qjq" secondAttribute="leading" id="ku4-v2-TcG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="tw1-lP-Sx8" secondAttribute="trailing" constant="112" id="pKA-Gx-ldD"/>
+                    <constraint firstItem="tw1-lP-Sx8" firstAttribute="top" secondItem="UN5-xD-ZMi" secondAttribute="bottom" constant="13" id="vow-8j-9F6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="courseName" destination="UN5-xD-ZMi" id="DpS-GL-0gQ"/>
+                <outlet property="teacher" destination="tw1-lP-Sx8" id="DcM-wm-cPa"/>
+                <outlet property="thumbnail" destination="GN4-1I-Qjq" id="vhH-DZ-n1a"/>
+                <outlet property="university" destination="qGE-uD-cF7" id="4zd-mv-xh9"/>
+            </connections>
+            <point key="canvasLocation" x="-389.5" y="-65"/>
+        </tableViewCell>
+    </objects>
+</document>

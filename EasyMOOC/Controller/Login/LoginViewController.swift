@@ -110,16 +110,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
         userName.text = ""
         userPwd.text  = ""
         student.backgroundColor = UIColor.clear
         teacher.backgroundColor = UIColor.clear
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

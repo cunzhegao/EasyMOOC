@@ -12,7 +12,7 @@ import Alamofire
 
 class ItemCell: UICollectionViewCell {
     
-    var course: LCObject? {
+    var course: Course? {
         didSet {
             setupView()
         }
@@ -59,13 +59,13 @@ class ItemCell: UICollectionViewCell {
         courseName.frame = CGRect(x: 0, y: frame.height - 20, width: frame.width, height: 10)
         universityName.frame = CGRect(x: 0, y: frame.height - 5, width: frame.width, height: 10)
         
-        courseName.text = (course?.get("courseName") as! LCString).stringValue
-        universityName.text = (course?.get("university") as! LCString).stringValue
-        guard let dic = (course?.get("thumbnail") as! LCDictionary).jsonValue as? NSDictionary else {return}
-        let url = dic.value(forKey: "url") as? String
-        guard let imageUrl = url else {print("image url is nil"); return}
+        courseName.text = course?.courseName
+        universityName.text = course?.collegeName
+        let imageUrl = course?.thumnailUrl
         
-        HttpManager.fetchImage(url: imageUrl) { image in
+        guard let url = imageUrl  else {return}
+        
+        HttpManager.fetchImage(url: url) { image in
             self.imageView.image = image
         }
         

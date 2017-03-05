@@ -29,6 +29,7 @@
 		1EBB90301E274DE7002C7340 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB902F1E274DE7002C7340 /* Extension.swift */; };
 		1EDD1FA11E69C9C50075ECD4 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD1FA01E69C9C50075ECD4 /* HttpManager.swift */; };
 		1EDD1FA41E69D6A60075ECD4 /* CourseInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD1FA31E69D6A60075ECD4 /* CourseInfoController.swift */; };
+		1EDD1FA81E6B1F5F0075ECD4 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EDD1FA71E6B1F5F0075ECD4 /* CourseCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		1EBB902F1E274DE7002C7340 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Helper/Extension.swift; sourceTree = "<group>"; };
 		1EDD1FA01E69C9C50075ECD4 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpManager.swift; path = Helper/HttpManager.swift; sourceTree = "<group>"; };
 		1EDD1FA31E69D6A60075ECD4 /* CourseInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseInfoController.swift; path = Controller/CourseController/CourseInfoController.swift; sourceTree = "<group>"; };
+		1EDD1FA71E6B1F5F0075ECD4 /* CourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
 		4EAD53359F7180B40A9D2577 /* Pods-EasyMOOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.debug.xcconfig"; sourceTree = "<group>"; };
 		BB052F2EBB5C78D56D1A0451 /* Pods-EasyMOOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMOOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyMOOC/Pods-EasyMOOC.release.xcconfig"; sourceTree = "<group>"; };
 		D5A5C9C56912058BAE22A330 /* Pods_EasyMOOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyMOOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +77,6 @@
 		1E24559B1E59769800FEB380 /* SearchPage */ = {
 			isa = PBXGroup;
 			children = (
-				1E24559C1E59771F00FEB380 /* CourseCell.swift */,
 				1E24559D1E59771F00FEB380 /* SearchController.swift */,
 			);
 			name = SearchPage;
@@ -103,11 +104,12 @@
 			isa = PBXGroup;
 			children = (
 				1EBB902C1E27370F002C7340 /* Helper */,
+				1EDD1FA61E6ABD5F0075ECD4 /* Model */,
+				1EDD1FA51E6ABD100075ECD4 /* View */,
 				1EF46DE61E4709770021B160 /* Controller */,
 				1E5D3D091E46FF1D008604A3 /* SupportingFile */,
 				1E2B5DBA1E1C94780062CB37 /* AppDelegate.swift */,
 				1E2B5DBE1E1C94780062CB37 /* Main.storyboard */,
-				1E52DC421E475DEF007FD1E0 /* Course.swift */,
 			);
 			path = EasyMOOC;
 			sourceTree = "<group>";
@@ -145,9 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				1E33A0CC1E596F8F0069D791 /* HomeViewController.swift */,
-				1E33A0CE1E596FB50069D791 /* CatagoryCell.swift */,
-				1E2A79671E5DE4000067F049 /* ItemCell.swift */,
-				1E2A796B1E5DE6610067F049 /* HeaderCell.swift */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -179,6 +178,26 @@
 				1EDD1FA31E69D6A60075ECD4 /* CourseInfoController.swift */,
 			);
 			name = CourseController;
+			sourceTree = "<group>";
+		};
+		1EDD1FA51E6ABD100075ECD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E33A0CE1E596FB50069D791 /* CatagoryCell.swift */,
+				1E2A79671E5DE4000067F049 /* ItemCell.swift */,
+				1E2A796B1E5DE6610067F049 /* HeaderCell.swift */,
+				1E24559C1E59771F00FEB380 /* CourseCell.swift */,
+				1EDD1FA71E6B1F5F0075ECD4 /* CourseCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1EDD1FA61E6ABD5F0075ECD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E52DC421E475DEF007FD1E0 /* Course.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		1EF46DE61E4709770021B160 /* Controller */ = {
@@ -271,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EDD1FA81E6B1F5F0075ECD4 /* CourseCell.xib in Resources */,
 				1E2B5DC81E1C94780062CB37 /* LaunchScreen.storyboard in Resources */,
 				1E2B5DC51E1C94780062CB37 /* Assets.xcassets in Resources */,
 				1E2B5DC01E1C94780062CB37 /* Main.storyboard in Resources */,

@@ -21,7 +21,7 @@ class CourseInfoController: UIViewController {
     @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var courseInfo: UITextView!
     var isLike:Bool = false
-    var course:LCObject?
+    var course:Course?
     
     @IBAction func back(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
@@ -63,23 +63,24 @@ class CourseInfoController: UIViewController {
         guard let course = course else {return}
         
         imgHeader.contentMode = .scaleAspectFill
-        guard let headerDic = (course.get("thumbnail") as! LCDictionary).jsonValue as? NSDictionary else {return}
-        let headerUrl = headerDic.value(forKey: "url") as? String
-        HttpManager.fetchImage(url: headerUrl!) { image in
+        let url = course.thumnailUrl
+        guard let headerUrl = url else {return}
+        
+        HttpManager.fetchImage(url: headerUrl) { image in
             self.imgHeader.image = image
         }
         
         imgCollege.contentMode = .scaleAspectFill
-        guard let collegeDic = (course.get("collegeImg") as! LCDictionary).jsonValue as? NSDictionary else {return}
-        let collegeUrl = collegeDic.value(forKey: "url") as? String
-        HttpManager.fetchImage(url: collegeUrl!) { image in
+        let url2 = course.collegeImgUrl
+        guard let collegeUrl = url2 else {return}
+        HttpManager.fetchImage(url: collegeUrl) { image in
             self.imgCollege.image = image
         }
         
-        collegeName.text = (course.get("university") as! LCString).stringValue
-        teacherName.text = (course.get("teacher") as! LCString).stringValue
-        courseName.text = (course.get("courseName") as! LCString).stringValue
-        courseInfo.text = (course.get("info") as! LCString).stringValue
+        collegeName.text = course.collegeName
+        teacherName.text = course.teacherName
+        courseName.text = course.courseName
+        courseInfo.text = course.info
 
     }
     

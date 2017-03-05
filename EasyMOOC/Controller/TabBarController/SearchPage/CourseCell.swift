@@ -17,19 +17,17 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var university: UILabel!
     @IBOutlet weak var teacher: UILabel!
     
-    var course:LCObject? {
+    var course: Course? {
         didSet {
             updateUI()
         }
     }
     
     func updateUI() {
-        print(course!)
         
         
         thumbnail.contentMode = .scaleAspectFit
-        guard let dic = (course?.get("thumbnail") as! LCDictionary).jsonValue as? NSDictionary else {return}
-        let url = dic.value(forKey: "url") as? String
+        let url = course?.thumnailUrl
         guard let imageUrl = url else {print("url is nil");return}
         HttpManager.fetchImage(url: imageUrl) { image in
             self.thumbnail.image = image
@@ -37,9 +35,9 @@ class CourseCell: UITableViewCell {
         
         
         //thumbnail.image = #imageLiteral(resourceName: "search-7")
-        courseName.text = (course?.get("courseName") as! LCString).stringValue
-        university.text = (course?.get("university") as! LCString).stringValue
-        teacher.text = (course?.get("teacher") as! LCString).stringValue
+        courseName.text = course?.courseName
+        university.text = course?.collegeName
+        teacher.text = course?.teacherName
         setNeedsDisplay()
     }
 }

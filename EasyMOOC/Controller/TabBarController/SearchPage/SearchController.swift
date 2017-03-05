@@ -9,11 +9,11 @@
 import UIKit
 import LeanCloud
 
-class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBarDelegate {
+class SearchController: UITableViewController {
     
     let cellId = "course"
     let searchController = UISearchController(searchResultsController: nil)
-    var course:[LCObject]? {
+    var courses:[Course]? {
         didSet {
             tableView.reloadData()
         }
@@ -27,8 +27,20 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
         searchController.searchBar.sizeToFit()
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "课程名、学校、教师"
+        
         tableView.tableHeaderView = searchController.searchBar
         
+        let cellNib = UINib(nibName: "CourseCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "course")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,45 +56,50 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return course == nil ? 0 : (course?.count)!
+        return courses == nil ? 0 : (courses?.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCell
-        cell.course = course?[indexPath.row]
+        cell.course = courses?[indexPath.row]
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if courses != nil {
+            let infoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "info") as! CourseInfoController
+            infoVC.course = courses?[indexPath.row]
+            let topVC = UIApplication.topViewController()
+            topVC?.navigationController?.pushViewController(infoVC, animated: true)
+            topVC?.tabBarController?.tabBar.isHidden = true
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
-    //MARK: - Search controller delegate
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
+
+extension SearchController: UISearchResultsUpdating,UISearchBarDelegate {
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         let searchText = searchBar.text ?? ""
-        searchBar.resignFirstResponder()
-        
-        let universityQuery = LCQuery(className: "Course")
-        universityQuery.whereKey("university", .matchedSubstring(searchText))
-        let courseQuery = LCQuery(className: "Course")
-        courseQuery.whereKey("coureseName", .matchedSubstring(searchText))
-        let teacherQuery = LCQuery(className: "Course")
-        teacherQuery.whereKey("teacher", .matchedSubstring(searchText))
-        let typeQuery  = LCQuery(className: "Course")
-        typeQuery.whereKey("type", .matchedSubstring(searchText))
-        
-        let query = universityQuery.or(courseQuery).or(teacherQuery).or(typeQuery)
-        query.find { result in
-            switch result {
-            case .success(let searchResult):
-                self.course = searchResult
-            case .failure(let error):
-                print("search fail : \(error.reason)")
-            }
+        if searchText == "" {
+            return
         }
+        searchBar.resignFirstResponder()
+        HttpManager.searchCourses(searchText: searchText) { courses in
+            self.courses = courses
+        }
+        
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -91,10 +108,6 @@ class SearchController: UITableViewController,UISearchResultsUpdating,UISearchBa
     
     func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text ?? "updating empty")
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
 }

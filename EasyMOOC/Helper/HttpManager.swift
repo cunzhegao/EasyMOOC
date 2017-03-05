@@ -55,28 +55,60 @@ struct HttpManager {
         }
     }
     
-    static func fetchCourses(catagoryName:String, completion:@escaping ([LCObject]) -> Void) {
+    static func fetchCourses(catagoryName:String, completion:@escaping ([Course]) -> Void) {
         let typeQuery  = LCQuery(className: "Course")
         typeQuery.whereKey("type", .matchedSubstring(catagoryName))
         
         typeQuery.find { result in
             switch result {
             case .success(let searchResult):
-                completion(searchResult)
+                var courses = [Course]()
+                for result in searchResult {
+                    let course = Course.init(withObject: result)
+                    courses.append(course)
+                }
+                completion(courses)
             case .failure(let error):
                 print("search fail : \(error.reason)")
             }
         }
     }
     
-    static func fetchCourse(courseName:String,completion:@escaping (LCObject) -> Void) {
+    static func searchCourses(searchText:String, completion:@escaping ([Course]) -> Void) {
+        let universityQuery = LCQuery(className: "Course")
+        universityQuery.whereKey("university", .matchedSubstring(searchText))
+        let courseQuery = LCQuery(className: "Course")
+        courseQuery.whereKey("coureseName", .matchedSubstring(searchText))
+        let teacherQuery = LCQuery(className: "Course")
+        teacherQuery.whereKey("teacher", .matchedSubstring(searchText))
+        let typeQuery  = LCQuery(className: "Course")
+        typeQuery.whereKey("type", .matchedSubstring(searchText))
+        
+        let query = universityQuery.or(courseQuery).or(teacherQuery).or(typeQuery)
+        query.find { result in
+            switch result {
+            case .success(let searchResult):
+                var courses = [Course]()
+                for result in searchResult {
+                    let course = Course.init(withObject: result)
+                    courses.append(course)
+                }
+                completion(courses)
+            case .failure(let error):
+                print("search fail : \(error.reason)")
+            }
+        }
+    }
+    
+    static func fetchCourse(courseName:String,completion:@escaping (Course) -> Void) {
         let courseQuery = LCQuery(className: "Course")
         courseQuery.whereKey("courseName", .matchedSubstring(courseName))
         
         courseQuery.find { result in
             switch result {
             case .success(let reusltCourse) :
-                completion(reusltCourse[0])
+                let course = Course.init(withObject: reusltCourse[0])
+                completion(course)
             case .failure(let err):
                 print("search fail : \(err.reason)")
             }
