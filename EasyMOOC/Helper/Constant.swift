@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import LeanCloud
 
 struct Constant {
     
@@ -17,10 +18,36 @@ struct Constant {
     static let btnBlue = UIColor(r: 80, g: 101, b: 161)
     
     static var isLogin = false
-    static var currentUser:String?
-    static var isTeacherUser = false
+    static var currentUser:UserInfo?
+    static var lcuser: LCUser?
     
-    static var thumbnails:[String : UIImage]?
+    static func cropImage(imageToCrop:UIImage) -> UIImage {
+        let width = imageToCrop.size.width
+        let ratio:CGFloat = 375/211
+        let height = width / ratio
+        let yPosition = imageToCrop.size.height / 2 - height / 2
+        let rect = CGRect(x: 0, y: yPosition, width: width, height: height)
+        
+        let cgImage = imageToCrop.cgImage?.cropping(to: rect)
+        let croppedImage = UIImage(cgImage: cgImage!)
+        return croppedImage
+    }
+    
+    static func saveImg(courseName:String, imgCover:UIImage, imgIcon:UIImage) {
+        let coverData = UIImageJPEGRepresentation(imgCover, 0.5)
+        let iconData  = UIImageJPEGRepresentation(imgIcon, 1.0)
+        UserDefaults.standard.set(coverData, forKey: courseName + "cover")
+        UserDefaults.standard.set(iconData, forKey: courseName + "icon")
+    }
+    
+    static func getImg(courseName:String) -> [UIImage]? {
+        guard let coverData = UserDefaults.standard.value(forKey: courseName + "cover") as? Data else {return nil}
+        guard let iconData  = UserDefaults.standard.value(forKey: courseName + "icon") as? Data else {return nil}
+        var images = [UIImage]()
+        images.append(UIImage(data: coverData)!)
+        images.append(UIImage(data: iconData)!)
+        return images
+    }
     
     static func aler(with msg:String,title:String){
         
@@ -31,5 +58,13 @@ struct Constant {
         
         let vc = UIApplication.topViewController()
         vc?.present(alerWindow, animated: true, completion: nil)
+    }
+    
+    static func addShadowView() {
+        
+    }
+    
+    static func removeShadowView() {
+        
     }
 }

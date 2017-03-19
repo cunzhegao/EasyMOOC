@@ -12,11 +12,14 @@ import LeanCloud
 
 struct HttpManager {
     
+    
     static func login(userName:String,userPwd:String,completion:@escaping (String) -> Void) {
         
         LCUser.logIn(username: userName, password: userPwd) { (result) in
             switch result {
-            case .success(_):
+            case .success(let user):
+                Constant.currentUser = UserInfo.init(withObject: user)
+                Constant.lcuser = user
                 completion("success")
                 break
             case .failure(let err):
@@ -74,6 +77,22 @@ struct HttpManager {
         }
     }
     
+    static func fetchCourses(relationKey: String, completion:@escaping ([Course]) -> Void) {
+        let mycourses = Constant.lcuser?.relationForKey(relationKey)
+        mycourses?.query.find() { result in
+            if result.isSuccess {
+                var courses = [Course]()
+                for object in result.objects! {
+                    let course = Course(withObject: object)
+                    courses.append(course)
+                }
+                completion(courses)
+            }else {
+                Constant.aler(with: "你还未加入任何课程", title: "")
+            }
+        }
+    }
+    
     static func searchCourses(searchText:String, completion:@escaping ([Course]) -> Void) {
         let universityQuery = LCQuery(className: "Course")
         universityQuery.whereKey("university", .matchedSubstring(searchText))
@@ -115,5 +134,23 @@ struct HttpManager {
         }
     }
     
-    
+    static func createCourse(course: Course, completion: @escaping (String) -> Void) {
+        let courseToUpload = LCObject(className: "Course")
+        courseToUpload.set("courseName", value: course.courseName)
+        courseToUpload.set("teacher", value: course.teacherName)
+        courseToUpload.set("university", value: course.collegeName)
+        courseToUpload.set("type", value: course.type)
+        courseToUpload.set("info", value: course.info)
+        
+        courseToUpload.save { (result) in
+            switch result {
+                case .success:
+                    Constant.lcuser?.insertRelation("myCourses", object: courseToUpload)
+                    _ = Constant.lcuser?.save()
+                    completion("success")
+                case .failure(let error):
+                    Constant.aler(with: "创建课程失败: \(error)", title: "")
+            }
+        }
+    }
 }

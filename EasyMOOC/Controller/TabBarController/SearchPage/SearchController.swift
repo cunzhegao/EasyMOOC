@@ -25,9 +25,14 @@ class SearchController: UITableViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.barTintColor = Constant.fbBlue
+        searchController.searchBar.tintColor = UIColor.white
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "课程名、学校、教师"
         
+        let lineView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 1))
+        lineView.backgroundColor = Constant.fbBlue
+        tableView.addSubview(lineView)
         tableView.tableHeaderView = searchController.searchBar
         
         let cellNib = UINib(nibName: "CourseCell", bundle: nil)
@@ -62,6 +67,7 @@ class SearchController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCell
+        cell.selectionStyle = .none
         cell.course = courses?[indexPath.row]
         
         return cell
@@ -96,6 +102,7 @@ extension SearchController: UISearchResultsUpdating,UISearchBarDelegate {
             return
         }
         searchBar.resignFirstResponder()
+        searchController.dismiss(animated: true, completion: nil)
         HttpManager.searchCourses(searchText: searchText) { courses in
             self.courses = courses
         }

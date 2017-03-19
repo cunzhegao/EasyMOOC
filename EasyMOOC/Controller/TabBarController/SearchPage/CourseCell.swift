@@ -25,19 +25,20 @@ class CourseCell: UITableViewCell {
     
     func updateUI() {
         
+        guard let course = course else {return}
         
         thumbnail.contentMode = .scaleAspectFit
-        let url = course?.thumnailUrl
-        guard let imageUrl = url else {print("url is nil");return}
-        HttpManager.fetchImage(url: imageUrl) { image in
-            self.thumbnail.image = image
+        if let url = course.thumnailUrl {
+            HttpManager.fetchImage(url: url) { image in
+                self.thumbnail.image = image
+            }
+        }else {
+            thumbnail.image = Constant.getImg(courseName: course.courseName)?[0]
         }
-        
-        
-        //thumbnail.image = #imageLiteral(resourceName: "search-7")
-        courseName.text = course?.courseName
-        university.text = course?.collegeName
-        teacher.text = course?.teacherName
+
+        courseName.text = course.courseName
+        university.text = course.collegeName
+        teacher.text = course.teacherName
         setNeedsDisplay()
     }
 }

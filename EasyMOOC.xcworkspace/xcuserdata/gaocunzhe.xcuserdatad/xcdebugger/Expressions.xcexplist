@@ -3,12 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "CourseCell.updateUI() -&gt; ():CourseCell.swift">
+         contextName = "CreateCourseController.createCourse(Any) -&gt; ():CreateCourseController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "print(file.jsonString)">
+               value = "        print(imgCover.frame)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchController.(searchBarSearchButtonClicked(UISearchBar) -&gt; ()).(closure #1):SearchController.swift">
       </ContextState>
       <ContextState
          contextName = "HeaderCell.scrollViewDidEndDecelerating(UIScrollView) -&gt; ():HeaderCell.swift">
@@ -19,7 +22,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SearchController.(searchBarSearchButtonClicked(UISearchBar) -&gt; ()).(closure #1):SearchController.swift">
+         contextName = "CourseCell.updateUI() -&gt; ():CourseCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " print(Constant.thumbnails ?? &quot;nil&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "print(file.jsonString)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

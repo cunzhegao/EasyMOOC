@@ -10,7 +10,7 @@ import UIKit
 import LeanCloud
 
 class CourseInfoController: UIViewController {
-
+    
     
     @IBOutlet weak var imgHeader: UIImageView!
     @IBOutlet weak var imgTeacher: UIImageView!
@@ -20,6 +20,7 @@ class CourseInfoController: UIViewController {
     @IBOutlet weak var teacherName: UILabel!
     @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var courseInfo: UITextView!
+    @IBOutlet weak var btnJoin: UIButton!
     var isLike:Bool = false
     var course:Course?
     
@@ -27,7 +28,7 @@ class CourseInfoController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
-
+    
     @IBAction func like(_ sender: Any) {
         if isLike {
             isLike = false
@@ -43,9 +44,33 @@ class CourseInfoController: UIViewController {
         
     }
     
+    
+    @IBAction func joinCourse(_ sender: Any) {
+//        if btnJoin.titleLabel?.text == "开始学习" {
+//            let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! VideoPlayerController
+//            navigationController?.pushViewController(playerVC, animated: true)
+//        }else {
+//            let couserToInsert = LCObject(className: "Course", objectId: (course?.objectID)!)
+//            Constant.lcuser?.insertRelation("myCourses", object: couserToInsert)
+//            Constant.lcuser?.save() { result in
+//                switch result {
+//                case .success:
+//                    self.btnJoin.setTitle("开始学习", for: .normal)
+//                    Constant.aler(with: "成功加入课程", title: "")
+//                case .failure(let error):
+//                    Constant.aler(with: "加入课程失败：\(error)", title: "")
+//                }
+//            }
+//        }
+        
+        let playerVC = VideoPlayerController()
+        navigationController?.pushViewController(playerVC, animated: true)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         imgTeacher.layer.cornerRadius = imgTeacher.frame.width * 0.5
         imgTeacher.clipsToBounds = true
@@ -54,34 +79,42 @@ class CourseInfoController: UIViewController {
         
         configInfo()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
     func configInfo() {
         guard let course = course else {return}
         
         imgHeader.contentMode = .scaleAspectFill
-        let url = course.thumnailUrl
-        guard let headerUrl = url else {return}
-        
-        HttpManager.fetchImage(url: headerUrl) { image in
-            self.imgHeader.image = image
+        if let url = course.thumnailUrl {
+            HttpManager.fetchImage(url: url) { image in
+                self.imgHeader.image = image
+            }
+        }else {
+            imgHeader.image = Constant.getImg(courseName: course.courseName)?[0]
         }
+
         
         imgCollege.contentMode = .scaleAspectFill
-        let url2 = course.collegeImgUrl
-        guard let collegeUrl = url2 else {return}
-        HttpManager.fetchImage(url: collegeUrl) { image in
-            self.imgCollege.image = image
+        if let url2 = course.collegeImgUrl {
+            HttpManager.fetchImage(url: url2) { image in
+                self.imgCollege.image = image
+            }
+        }else {
+            imgCollege.image = Constant.getImg(courseName: course.courseName)?[1]
         }
-        
+
         collegeName.text = course.collegeName
         teacherName.text = course.teacherName
         courseName.text = course.courseName
         courseInfo.text = course.info
-
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -91,5 +124,5 @@ class CourseInfoController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
+    
 }

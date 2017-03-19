@@ -37,6 +37,7 @@ class ItemCell: UICollectionViewCell {
     
     let courseName: UILabel = {
         let label  = UILabel()
+        label.textColor = UIColor(white: 0, alpha: 0.9)
         label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()

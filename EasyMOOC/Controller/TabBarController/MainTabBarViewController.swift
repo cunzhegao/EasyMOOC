@@ -26,7 +26,7 @@ class MainTabBarViewController: UITabBarController {
         let homeController = HomeViewController(collectionViewLayout: layout)
         homeController.navigationItem.title = "首页"
         let firstNaviController = UINavigationController(rootViewController: homeController)
-        firstNaviController.title = "主首页"
+        firstNaviController.title = "首页"
         firstNaviController.tabBarItem.image = #imageLiteral(resourceName: "home-7")
         //firstNaviController.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1)
         firstNaviController.navigationBar.barStyle = .black
