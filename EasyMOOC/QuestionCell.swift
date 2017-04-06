@@ -10,8 +10,19 @@ import UIKit
 
 class QuestionCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var answerCount: UILabel!
+    @IBOutlet weak var time: UILabel!
+    var question: Question? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    private func updateUI() {
+        title.text = question?.title
+        answerCount.text = String(format: "%d", (question?.answerCount)!)
+        time.text = question?.time
     }
 }

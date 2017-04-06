@@ -12,6 +12,7 @@ class ForumController: UIViewController {
     
     let cellID = "question"
     var navTitle: String?
+    var questions: [Question]?
     
     lazy var searchControl: UISearchController = {
         let sc = UISearchController(searchResultsController: nil)
@@ -59,6 +60,8 @@ class ForumController: UIViewController {
         navigationController?.navigationBar.barTintColor = Constant.fbBlue
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        fetchQuestion()
     }
     
     func askQuestion() {
@@ -66,11 +69,21 @@ class ForumController: UIViewController {
         askQuestionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: 400)
         view.addSubview(askQuestionView)
         UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-            askQuestionView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 420)
+            askQuestionView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.tableView.scrollsToTop = true
+            self.tableView.isScrollEnabled = false
             askQuestionView.questionTitle.becomeFirstResponder()
+            askQuestionView.owner = self
         }) { (_) in
-            
+
+        }
+    }
+    
+    func fetchQuestion() {
+        HttpManager.fectchQuestion { (questions) in
+            self.questions = questions
+            self.tableView.reloadData()
         }
     }
     
@@ -79,21 +92,27 @@ class ForumController: UIViewController {
 extension ForumController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return questions == nil ? 0 : (questions?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! QuestionCell
+        cell.question = questions?[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let answerVC = AnswerController()
+        answerVC.question = questions?[indexPath.row]
         navigationController?.pushViewController(answerVC, animated: true)
     }
 }
@@ -101,8 +120,16 @@ extension ForumController: UITableViewDelegate, UITableViewDataSource {
 extension ForumController: UISearchResultsUpdating,UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        
+        let searchText = searchBar.text ?? ""
+        if searchText == "" {
+            return
+        }
+        searchBar.resignFirstResponder()
+        searchControl.dismiss(animated: true, completion: nil)
+        HttpManager.searchQuestions(searchText: searchText) { results in
+            self.questions = results
+            self.tableView.reloadData()
+        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

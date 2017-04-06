@@ -28,15 +28,15 @@ class UserViewController: UIViewController,UIGestureRecognizerDelegate {
         
         userIcon.layer.cornerRadius = 0.5 * userIcon.bounds.size.width
         userIcon.clipsToBounds = true
-        userName.text = Constant.currentUser?.userName
+        userName.text = "Kubrick" //Constant.currentUser?.userName
         badge.layer.cornerRadius = 0.5 * badge.bounds.size.width
         
-//        if Constant.currentUser?.identity == .teacher {
+        if Constant.currentUser?.identity == .teacher {
             userIcon.image = #imageLiteral(resourceName: "teacherIcon")
             downloadIcon.image = #imageLiteral(resourceName: "teacher")
             downloadLabel.text = "创建课程"
-//        }
-        
+        }
+    
         addGesture()
     }
     
@@ -92,7 +92,14 @@ class UserViewController: UIViewController,UIGestureRecognizerDelegate {
                 
             }
         }else {
-            let createVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "create") as! CreateCourseController
+            var createVC = CreateCourseController()
+            if UIScreen.main.bounds.width > 320 {
+                createVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "create") as! CreateCourseController
+            }else {
+                createVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "create2") as! CreateCourseController
+            }
+            
+
             createVC.navTitle = "创建课程"
             self.navigationController?.pushViewController(createVC, animated: true)
             self.tabBarController?.tabBar.isHidden = true
@@ -103,8 +110,9 @@ class UserViewController: UIViewController,UIGestureRecognizerDelegate {
     func toForums() {
         let forumVC = ForumController()
         forumVC.navTitle = "讨论区"
-        navigationController?.pushViewController(forumVC, animated: true)
-        tabBarController?.tabBar.isHidden = true
+        self.navigationController?.pushViewController(forumVC, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
+        
     }
     
     func toMessageBox() {

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,38 +16,55 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user3" translatesAutoresizingMaskIntoConstraints="NO" id="IQk-Zk-pgS">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teacherImg" translatesAutoresizingMaskIntoConstraints="NO" id="IQk-Zk-pgS">
                         <rect key="frame" x="8" y="13" width="30" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="60g-px-N1P"/>
+                            <constraint firstAttribute="height" constant="30" id="qgk-03-c9N"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stanly Cooper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50R-3J-K9r">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanly Cooper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50R-3J-K9r">
                         <rect key="frame" x="46" y="22" width="165" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="165" id="Z2p-JF-sks"/>
+                            <constraint firstAttribute="height" constant="21" id="kxO-H6-Jze"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.21005491130000001" green="0.21005491130000001" blue="0.21005491130000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。                        " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSc-LL-keX">
-                        <rect key="frame" x="8" y="47" width="359" height="94"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.21005491133846155" green="0.21005491133846155" blue="0.21005491133846155" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="17:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OE-th-Chk">
-                        <rect key="frame" x="317" y="22" width="50" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="17:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OE-th-Chk">
+                        <rect key="frame" x="324.5" y="22" width="42.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.54825603319230765" green="0.54825603319230765" blue="0.54825603319230765" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。                        " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="MSc-LL-keX">
+                        <rect key="frame" x="8" y="58" width="359" height="83"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.21005491133846155" green="0.21005491133846155" blue="0.21005491133846155" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="IQk-Zk-pgS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="1lB-4J-R4r"/>
+                    <constraint firstItem="8OE-th-Chk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="P9c-0r-DGR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MSc-LL-keX" secondAttribute="trailing" id="PZO-wO-GXQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8OE-th-Chk" secondAttribute="trailing" id="ROd-w5-er7"/>
+                    <constraint firstItem="8OE-th-Chk" firstAttribute="leading" secondItem="50R-3J-K9r" secondAttribute="trailing" priority="750" constant="106" id="SiU-kA-1ac"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="IQk-Zk-pgS" secondAttribute="leading" id="Ssb-MX-YaH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="MSc-LL-keX" secondAttribute="bottom" constant="1" id="Swf-fj-J3Y"/>
+                    <constraint firstItem="MSc-LL-keX" firstAttribute="top" secondItem="IQk-Zk-pgS" secondAttribute="bottom" constant="15" id="cH2-OI-ZvX"/>
+                    <constraint firstItem="50R-3J-K9r" firstAttribute="leading" secondItem="IQk-Zk-pgS" secondAttribute="trailing" constant="8" id="htn-bW-P4l"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="MSc-LL-keX" secondAttribute="leading" id="nfM-5X-0KQ"/>
+                    <constraint firstItem="50R-3J-K9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="pq9-sR-abr"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="answer" destination="MSc-LL-keX" id="Z26-4D-4OA"/>
+                <outlet property="answerDetail" destination="MSc-LL-keX" id="gvA-D6-qHk"/>
                 <outlet property="time" destination="8OE-th-Chk" id="kCF-eV-Rdw"/>
                 <outlet property="userIcon" destination="IQk-Zk-pgS" id="2ds-Be-NtP"/>
                 <outlet property="userName" destination="50R-3J-K9r" id="jLm-TB-e4n"/>
@@ -55,6 +73,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="user3" width="50" height="50"/>
+        <image name="teacherImg" width="96" height="96"/>
     </resources>
 </document>

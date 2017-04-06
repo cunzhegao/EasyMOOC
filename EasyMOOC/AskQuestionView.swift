@@ -13,6 +13,7 @@ class AskQuestionView: UIView, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var questionTitle: UITextField!
     @IBOutlet weak var questionDetail: UITextView!
+    weak var owner: ForumController?
     
     override func awakeFromNib() {
         questionTitle.delegate = self
@@ -20,15 +21,19 @@ class AskQuestionView: UIView, UITextFieldDelegate, UITextViewDelegate {
     }
     
     @IBAction func cancle(_ sender: Any) {
-        self.removeFromSuperview()
-        if let topNav = UIApplication.topViewController()?.navigationController {
-            topNav.setNavigationBarHidden(false, animated: true)
-        }
+        removeFromSuperview()
+        owner?.fetchQuestion()
+        owner?.navigationController?.setNavigationBarHidden(false, animated: true)
+        owner?.tableView.isScrollEnabled = true
     }
     
-    
     @IBAction func ask(_ sender: Any) {
-        
+        let currentTime = NSCalendar.current.dateComponents([.hour,.minute], from: Date())
+        let timeString = String(format: "%02d%@%02d", currentTime.hour!, ":", currentTime.minute!)
+        let newQuestion =  Question(title: questionTitle.text!, detail: questionDetail.text!, userName: (Constant.currentUser?.userName)!, time: timeString)
+        HttpManager.createQuestion(question: newQuestion) { (result) in
+            self.cancle(self)
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

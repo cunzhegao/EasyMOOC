@@ -32,6 +32,8 @@
 		1E4DD1551E7EC060007988B8 /* AnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4DD1531E7EC060007988B8 /* AnswerCell.xib */; };
 		1E4DD1571E7ED139007988B8 /* AnswerQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD1561E7ED139007988B8 /* AnswerQuestionView.swift */; };
 		1E4DD1591E7ED149007988B8 /* AnswerQuestionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4DD1581E7ED149007988B8 /* AnswerQuestionView.xib */; };
+		1E4DD15B1E7F8FF5007988B8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD15A1E7F8FF5007988B8 /* Question.swift */; };
+		1E4DD15D1E7F9000007988B8 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD15C1E7F9000007988B8 /* Answer.swift */; };
 		1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52DC421E475DEF007FD1E0 /* Course.swift */; };
 		1E712F981E74485B00E5300A /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E712F971E74485B00E5300A /* userInfo.swift */; };
 		1E7FFC611E75954300685347 /* CreateCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FFC601E75954300685347 /* CreateCourseController.swift */; };
@@ -89,6 +91,8 @@
 		1E4DD1531E7EC060007988B8 /* AnswerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerCell.xib; sourceTree = "<group>"; };
 		1E4DD1561E7ED139007988B8 /* AnswerQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerQuestionView.swift; sourceTree = "<group>"; };
 		1E4DD1581E7ED149007988B8 /* AnswerQuestionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerQuestionView.xib; sourceTree = "<group>"; };
+		1E4DD15A1E7F8FF5007988B8 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		1E4DD15C1E7F9000007988B8 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		1E52DC421E475DEF007FD1E0 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		1E712F971E74485B00E5300A /* userInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
 		1E7FFC601E75954300685347 /* CreateCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateCourseController.swift; path = Controller/TabBarController/UserPage/CreateCourseController.swift; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 			children = (
 				1E52DC421E475DEF007FD1E0 /* Course.swift */,
 				1E712F971E74485B00E5300A /* userInfo.swift */,
+				1E4DD15A1E7F8FF5007988B8 /* Question.swift */,
+				1E4DD15C1E7F9000007988B8 /* Answer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				1E33A0C61E596F6A0069D791 /* MainTabBarViewController.swift in Sources */,
 				1E52DC431E475DEF007FD1E0 /* Course.swift in Sources */,
 				1EDD1FA41E69D6A60075ECD4 /* CourseInfoController.swift in Sources */,
+				1E4DD15B1E7F8FF5007988B8 /* Question.swift in Sources */,
 				1E33A0C21E596F440069D791 /* RegisterViewController.swift in Sources */,
 				1E7FFC801E7C24E800685347 /* QuizView.swift in Sources */,
 				1E2B5DBB1E1C94780062CB37 /* AppDelegate.swift in Sources */,
@@ -520,6 +527,7 @@
 				1E33A0CF1E596FB50069D791 /* CatagoryCell.swift in Sources */,
 				1E2A79681E5DE4000067F049 /* ItemCell.swift in Sources */,
 				1E712F981E74485B00E5300A /* userInfo.swift in Sources */,
+				1E4DD15D1E7F9000007988B8 /* Answer.swift in Sources */,
 				1E4DD1501E7EC043007988B8 /* QuestionHeaderCell.swift in Sources */,
 				1E7FFC851E7C34F000685347 /* MessageCell.swift in Sources */,
 			);

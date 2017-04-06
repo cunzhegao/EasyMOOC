@@ -52,10 +52,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     //MARK: -Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        let mainVC = MainTabBarViewController()
-        present(mainVC, animated: false, completion: nil)
+
+//        let mainVC = MainTabBarViewController()
+//        present(mainVC, animated: false, completion: nil)
         
         view.backgroundColor = UIColor.white
         navigationController?.navigationBar.barStyle = .black

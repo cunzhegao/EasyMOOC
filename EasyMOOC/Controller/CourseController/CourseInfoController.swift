@@ -46,26 +46,22 @@ class CourseInfoController: UIViewController {
     
     
     @IBAction func joinCourse(_ sender: Any) {
-//        if btnJoin.titleLabel?.text == "开始学习" {
-//            let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! VideoPlayerController
-//            navigationController?.pushViewController(playerVC, animated: true)
-//        }else {
-//            let couserToInsert = LCObject(className: "Course", objectId: (course?.objectID)!)
-//            Constant.lcuser?.insertRelation("myCourses", object: couserToInsert)
-//            Constant.lcuser?.save() { result in
-//                switch result {
-//                case .success:
-//                    self.btnJoin.setTitle("开始学习", for: .normal)
-//                    Constant.aler(with: "成功加入课程", title: "")
-//                case .failure(let error):
-//                    Constant.aler(with: "加入课程失败：\(error)", title: "")
-//                }
-//            }
-//        }
-        
-        let playerVC = VideoPlayerController()
-        navigationController?.pushViewController(playerVC, animated: true)
-
+        if btnJoin.titleLabel?.text == "开始学习" {
+            let playerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "player") as! VideoPlayerController
+            navigationController?.pushViewController(playerVC, animated: true)
+        }else {
+            let couserToInsert = LCObject(className: "Course", objectId: (course?.objectID)!)
+            Constant.lcuser?.insertRelation("myCourses", object: couserToInsert)
+            Constant.lcuser?.save() { result in
+                switch result {
+                case .success:
+                    self.btnJoin.setTitle("开始学习", for: .normal)
+                    Constant.aler(with: "成功加入课程", title: "")
+                case .failure(let error):
+                    Constant.aler(with: "加入课程失败：\(error)", title: "")
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {

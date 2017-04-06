@@ -12,22 +12,23 @@ import LeanCloud
 
 struct HttpManager {
     
-    
+    //MARK: - Login and Register
     static func login(userName:String,userPwd:String,completion:@escaping (String) -> Void) {
         
         LCUser.logIn(username: userName, password: userPwd) { (result) in
             switch result {
             case .success(let user):
+                //将当前登录用户保存在全局变量中
                 Constant.currentUser = UserInfo.init(withObject: user)
                 Constant.lcuser = user
                 completion("success")
                 break
             case .failure(let err):
-                completion(err.reason!)
+                completion(err.reason ?? "fail")
             }
         }
     }
-    
+
     static func register(userName:String,userPwd:String,identity:String, completion:@escaping (String) -> Void) {
         let registerUser = LCUser()
         registerUser.username = LCString(userName)
@@ -45,6 +46,7 @@ struct HttpManager {
         }
     }
     
+    //MARK: - Image
     static func fetchImage(url:String, completion:@escaping (UIImage?) -> Void) {
         let imageURL = URL(string: url)
         let request  =  try! URLRequest(url: imageURL!, method: .get)
@@ -58,6 +60,7 @@ struct HttpManager {
         }
     }
     
+    //MARK: - Course Related
     static func fetchCourses(catagoryName:String, completion:@escaping ([Course]) -> Void) {
         let typeQuery  = LCQuery(className: "Course")
         typeQuery.whereKey("type", .matchedSubstring(catagoryName))
@@ -94,6 +97,8 @@ struct HttpManager {
     }
     
     static func searchCourses(searchText:String, completion:@escaping ([Course]) -> Void) {
+        let courseNameQuery = LCQuery(className: "Course")
+        courseNameQuery.whereKey("courseName", .matchedSubstring(searchText))
         let universityQuery = LCQuery(className: "Course")
         universityQuery.whereKey("university", .matchedSubstring(searchText))
         let courseQuery = LCQuery(className: "Course")
@@ -103,7 +108,7 @@ struct HttpManager {
         let typeQuery  = LCQuery(className: "Course")
         typeQuery.whereKey("type", .matchedSubstring(searchText))
         
-        let query = universityQuery.or(courseQuery).or(teacherQuery).or(typeQuery)
+        let query = courseNameQuery.or(universityQuery).or(courseQuery).or(teacherQuery).or(typeQuery)
         query.find { result in
             switch result {
             case .success(let searchResult):
@@ -153,4 +158,86 @@ struct HttpManager {
             }
         }
     }
+    
+    //MARK: - Forum Related
+    static func fectchQuestion(completion:@escaping ([Question]) -> Void) {
+        let query = LCQuery(className: "Question")
+        query.whereKey("createdAt", .descending)
+        query.find { result in
+            switch result {
+                case .success(let results):
+                    var questions = [Question]()
+                    for questionObject in results {
+                        let question = Question(with: questionObject)
+                        questions.append(question)
+                    }
+                    completion(questions)
+                case .failure(let error):
+                    Constant.aler(with: "fetch question fail: \(error)", title: "")
+            }
+        }
+    }
+    
+    static func searchQuestions(searchText:String, completion:@escaping ([Question]) -> Void) {
+        let titleQuery = LCQuery(className: "Question")
+        titleQuery.whereKey("title", .matchedSubstring(searchText))
+        let detailQuery = LCQuery(className: "Question")
+        detailQuery.whereKey("detail", .matchedSubstring(searchText))
+        
+        let query = titleQuery.or(detailQuery)
+        query.find { result in
+            switch result {
+            case .success(let searchResult):
+                var questions = [Question]()
+                for result in searchResult {
+                    let question = Question.init(with: result)
+                    questions.append(question)
+                }
+                completion(questions)
+            case .failure(let error):
+                print("search fail : \(error.reason)")
+            }
+        }
+    }
+    
+    static func createQuestion(question: Question, completion: @escaping (String) -> Void) {
+        let newQuestion = LCObject(className: "Question")
+        newQuestion.set("title", value: question.title)
+        newQuestion.set("detail", value: question.detail)
+        newQuestion.set("time", value: question.time)
+        newQuestion.set("userName", value: question.userName)
+
+        newQuestion.save { (result) in
+            switch result {
+            case .success:
+                completion("success")
+                Constant.aler(with: "问题已提交，正等待回答", title: "")
+            case .failure(let error):
+                Constant.aler(with: "创建课程失败: \(error)", title: "")
+            }
+        }
+    }
+    
+    static func fetchAnswer(question: Question, completion: @escaping ([Answer]) -> Void) {
+        
+        guard let objectID = question.objectID else {return}
+        
+        let questionObject = LCObject(className: "Question", objectId: objectID)
+        let query = questionObject.relationForKey("answers").query
+        query.whereKey("createdAt", .descending)
+        query.find() { result in
+            if result.isSuccess {
+                var answers = [Answer]()
+                for object in result.objects! {
+                    let answer = Answer(with: object)
+                    answers.append(answer)
+                }
+                completion(answers)
+            }else {
+                
+            }
+        }
+    }
+    
+    
 }

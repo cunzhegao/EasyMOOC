@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,28 +16,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 斯坦福大学公开课：iPhone应用开发" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9C-rQ-T2h">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 斯坦福大学公开课：iPhone应用开发" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="h9C-rQ-T2h">
                     <rect key="frame" x="22" y="20" width="337" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IP7-NZ-pzH">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-Py-P4D">
+                    <rect key="frame" x="22" y="61" width="337" height="156"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <attributedString key="attributedText">
+                        <fragment content="本课程介绍了使用iPhone SDK(软件开发包)建造iPhone平台上的应用程序所需的工具和应用程序接口；使用多点触控技术，为手机等终端设计用户互交界面等技术进行面向对象的设计。其他主题包括：内核动画、bonjour网络、移动终端电量管理和性能测评。">
+                            <attributes>
+                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IP7-NZ-pzH">
                     <rect key="frame" x="22" y="230" width="337" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.81522082390648554" green="0.81522082390648554" blue="0.81522082390648554" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="eqx-hN-P1l"/>
+                    </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 预备知识" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GY-6K-ZM3">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 预备知识" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GY-6K-ZM3">
                     <rect key="frame" x="22" y="250" width="337" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4f-Pi-Sp5">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4f-Pi-Sp5">
                     <rect key="frame" x="22" y="287" width="337" height="91"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <attributedString key="attributedText">
                         <fragment content="1.">
@@ -93,22 +106,29 @@
                     </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-Py-P4D">
-                    <rect key="frame" x="22" y="61" width="337" height="156"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <attributedString key="attributedText">
-                        <fragment content="本课程介绍了使用iPhone SDK(软件开发包)建造iPhone平台上的应用程序所需的工具和应用程序接口；使用多点触控技术，为手机等终端设计用户互交界面等技术进行面向对象的设计。其他主题包括：内核动画、bonjour网络、移动终端电量管理和性能测评。">
-                            <attributes>
-                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="s4f-Pi-Sp5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="Ds4-V4-zK0"/>
+                <constraint firstItem="h9C-rQ-T2h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="F9h-cw-qTx"/>
+                <constraint firstItem="IP7-NZ-pzH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="HSf-gQ-QYE"/>
+                <constraint firstItem="IP7-NZ-pzH" firstAttribute="top" secondItem="yOy-Py-P4D" secondAttribute="bottom" constant="13" id="MgS-IT-4hP"/>
+                <constraint firstItem="h9C-rQ-T2h" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.08" id="SdK-dQ-ogK"/>
+                <constraint firstItem="yOy-Py-P4D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="TS0-Al-YbR"/>
+                <constraint firstItem="0GY-6K-ZM3" firstAttribute="top" secondItem="IP7-NZ-pzH" secondAttribute="bottom" constant="19" id="UvN-MM-hbJ"/>
+                <constraint firstAttribute="trailing" secondItem="IP7-NZ-pzH" secondAttribute="trailing" constant="16" id="YmS-xj-3c4"/>
+                <constraint firstAttribute="trailing" secondItem="s4f-Pi-Sp5" secondAttribute="trailing" constant="16" id="bfB-f5-LQV"/>
+                <constraint firstAttribute="trailing" secondItem="0GY-6K-ZM3" secondAttribute="trailing" constant="16" id="dur-2G-GjU"/>
+                <constraint firstItem="s4f-Pi-Sp5" firstAttribute="top" secondItem="0GY-6K-ZM3" secondAttribute="bottom" constant="5" id="eKi-4Z-d06"/>
+                <constraint firstItem="s4f-Pi-Sp5" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.22" id="eu4-rD-Ihw"/>
+                <constraint firstAttribute="trailing" secondItem="yOy-Py-P4D" secondAttribute="trailing" constant="16" id="isW-aC-biV"/>
+                <constraint firstItem="0GY-6K-ZM3" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.079" id="nRc-dF-mRT"/>
+                <constraint firstItem="0GY-6K-ZM3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="ooR-Q4-tZc"/>
+                <constraint firstItem="yOy-Py-P4D" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.375" id="qC3-un-KtU"/>
+                <constraint firstAttribute="trailing" secondItem="h9C-rQ-T2h" secondAttribute="trailing" constant="16" id="rRf-8G-D9O"/>
+                <constraint firstItem="h9C-rQ-T2h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="tdY-Zp-0SE"/>
+                <constraint firstItem="yOy-Py-P4D" firstAttribute="top" secondItem="h9C-rQ-T2h" secondAttribute="bottom" constant="8" id="z7z-9K-jQC"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>

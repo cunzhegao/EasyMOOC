@@ -14,11 +14,22 @@ class AnswerCell: UITableViewCell {
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var answer: UILabel!
+    @IBOutlet weak var answerDetail: UILabel!
+    var answer: Answer? {
+        didSet {
+            updateUI()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         userIcon.layer.cornerRadius = 0.5 * userIcon.bounds.size.width
         userIcon.clipsToBounds = true
+    }
+    
+    private func updateUI() {
+        userName.text =  answer?.userName
+        answerDetail.text = answer?.detail
+        time.text = answer?.time
     }
 }

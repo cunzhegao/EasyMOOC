@@ -75,7 +75,6 @@ class CreateCourseController: UIViewController {
 }
 
 extension CreateCourseController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             if uploadTag == 1 {
@@ -84,7 +83,6 @@ extension CreateCourseController:UIImagePickerControllerDelegate,UINavigationCon
                 imgIcon.image = image
             }
         }
-        
         dismiss(animated: true, completion: nil)
     }
 }

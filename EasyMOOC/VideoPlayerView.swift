@@ -119,16 +119,13 @@ class VideoPlayerView: UIView {
     }
     
     func dragSlider() {
-
         let seekSecond = totalSecond! * timeSlider.value
         let minute = Int(seekSecond / 60)
         let second = Int(seekSecond.truncatingRemainder(dividingBy: 60))
         currentTimeLabel.text = "\(minute):\(second)"
         let seekTime = CMTime(seconds: Double(seekSecond), preferredTimescale: 1)
-        
-        player?.seek(to: seekTime) { (result) in
-            
-        }
+    
+        player?.seek(to: seekTime)
     }
     
     func rotateScreen() {

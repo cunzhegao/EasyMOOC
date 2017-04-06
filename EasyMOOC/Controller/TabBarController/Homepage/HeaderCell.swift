@@ -18,8 +18,7 @@ class HeaderCell: UICollectionViewCell,UIScrollViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
+    
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = true

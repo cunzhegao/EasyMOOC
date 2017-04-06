@@ -33,5 +33,8 @@ extension UIApplication{
         
         return viewController
     }
+}
+
+extension Date {
     
 }
